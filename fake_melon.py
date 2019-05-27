@@ -13,8 +13,24 @@ Play_list = mongo.db.Play_list
 Transactions = mongo.db.Transactions
 
 
+def get_data(collection):
+    return collection.find_one()
+
+
+# EX. query = { "address": {"$regex": "^S"} }
+def delete_data(collection, query):
+    return collection.delete_many(query)
+
+
+# Ex. myquery = { "address": { "$regex": "^S" } }
+#     newvalues = { "$set": { "name": "Minnie" } }
+def update_data(collection, query, new_value):
+    return collection.update_many(query, new_value)
+
+
 @fake_melon.route('/')
 def index():
+    print(get_data(Track)['track_name'])
     return 'OK!'
 
 
