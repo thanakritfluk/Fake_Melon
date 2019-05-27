@@ -1,0 +1,112 @@
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+.playlist-page{
+    font-family: 'Barlow', sans-serif;
+    width: auto;
+    max-width: 1920px;
+    width: auto;
+    max-height: fit-content;
+
+
+
+}
+#banner{
+    max-width: 1920px;
+    width: auto;
+    height: 120px;
+    align-content: start;
+    background: url(../static/image/ataulfomangoes.jpg) ;
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+#mango-logo{
+    height: 50;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 300px;
+}
+
+#search{
+    margin-top: 30px;
+}
+
+
+#inbanner{
+    align-self: center;
+}
+#searchingbox{
+    width: 550px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+#searchingbutton{
+    height: 40px;
+    margin-top: 30px;
+}
+
+#user-icon {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-name{
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-icon:hover {
+    opacity: 0.7;
+}
+
+#box{
+    margin-left: 150px;
+    margin-top: 40px;
+    margin-right: 50px;
+    width: 1030px;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+#head{margin-bottom: 65px;
+    margin-top: 30px;
+}
+
+#title{
+        font-size: 50px;
+}
+
+#playbutton{
+    font-size: 60px;
+    margin-left: 30px;
+    margin-right: 130px;
+}
+
+#pic{
+    width: 160px;
+    height: 160px;
+    margin-right: 150px;
+}
+
+#songname{
+    font-size: 40px;
+}
+
+#greybg{
+    background-color: lightgrey;
+    opacity: 0.5;
+}
