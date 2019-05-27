@@ -108,5 +108,4 @@ venv.bak/
 .gitignore
 .idea/inspectionProfiles/
 .idea/vcs.xml
-requirements.txt
 static/
