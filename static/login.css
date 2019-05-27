@@ -1,0 +1,101 @@
+.login-page{
+    font-family: 'Barlow', sans-serif;
+    width: auto;
+    max-width: 1920px;
+}
+#banner{
+    max-width: 1920px;
+    width: auto;
+    height: 120px;
+    align-content: start;
+    background: url(../static/image/ataulfomangoes.jpg) ;
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+#mango-logo{
+    height: 50;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 300px;
+}
+
+#search{
+    margin-top: 30px;
+}
+
+
+#inbanner{
+    align-self: center;
+}
+#searchingbox{
+    width: 550px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+#searchingbutton{
+    height: 40px;
+    margin-top: 30px;
+}
+
+#user-icon {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-name{
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-icon:hover {
+    opacity: 0.7;
+}
+
+#title {
+    font-size: 40px;
+}
+
+#head {
+    margin-top: 200px;
+    
+}
+
+#heading2{
+    font-size: 25px;
+}
+#inputboxname {
+    width: 750px;
+}
+
+#inputboxpass {
+    width: 750px;
+}
+
+#greybg{
+    height: 650px;
+    background-color: lightgrey;
+    opacity: 0.5;
+}
+
+.containertest {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#buttonlogin{
+    font-size: 20px;
+    margin-right: 50px;
+}
+#buttonregist{
+    font-size: 20px;
+}
