@@ -1,15 +1,20 @@
 #chart-body {
     max-width: 1920px;
+    min-width: 1000px;
     width: auto;
     max-height: fit-content;
     background-color:rgb(218, 216, 216);
     font-family: 'Barlow', sans-serif;
+    
 
 }
 
 #chart-content {
     background-color: #FFFFFF;
     width: 1535px;
+    min-width: 1000px;
+    max-width: 1535px;
+    contain: initial;
     height: auto;
     padding-left: 85px;
     padding-top: 55px;
@@ -49,7 +54,7 @@
     color: #707070;
 }
 
-.chart-addicon {
+.addicon {
     font-size: 40px;
     color: #707070;
 
@@ -59,7 +64,7 @@
     opacity: 0.7;
 }
 
-.chart-addicon:hover {
+.addicon:hover {
     opacity: 0.7;
 }
 
@@ -77,7 +82,7 @@
     width: auto;
     height: 120px;
     align-content: start;
-    background: url(../image/ataulfomangoes.jpg) ;
+    background: url(../static/image/ataulfomangoes.jpg) ;
     background-size: cover;
     opacity: 0.9;
 
@@ -125,4 +130,5 @@
 #user-icon:hover {
     opacity: 0.7;
 }
+
 
