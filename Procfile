@@ -1,1 +1,1 @@
-web: gunicorn fake_melon:fake_melon
+web: gunicorn app:app
