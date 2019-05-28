@@ -2,8 +2,10 @@
     font-family: 'Barlow', sans-serif;
     width: auto;
     max-width: 1920px;
+    min-width: fit-content;
 }
 #banner{
+    min-width: fit-content;
     max-width: 1920px;
     width: auto;
     height: 120px;
@@ -98,4 +100,30 @@
 }
 #buttonregist{
     font-size: 20px;
+}
+
+
+
+
+#head{
+    margin-top: 35px;
+}
+#headregist{
+    font-size: 50px;
+}
+#registbox{
+    margin-top: 100px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#confirmbutton{
+    width: fit-content;
+    margin-top: 60px;
+    margin-left: 280px;
+    margin-right: 40px;
+}
+
+#registrationbutton{
+    margin-top: 60px;
 }

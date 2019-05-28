@@ -2,9 +2,11 @@
     font-family: 'Barlow', sans-serif;
     width: auto;
     max-width: 1920px;
+    min-width: fit-content;
 }
 #banner{
     max-width: 1920px;
+    min-width: fit-content;
     width: auto;
     height: 120px;
     align-content: start;
