@@ -1,0 +1,60 @@
+.playlist-page{
+    font-family: 'Barlow', sans-serif;
+    width: auto;
+    max-width: 1920px;
+    max-height: fit-content;
+    min-width: fit-content;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+#box{
+    margin-left: 150px;
+    margin-top: 40px;
+    margin-right: 50px;
+    width: 1030px;
+    height: auto;
+    padding-bottom: 30px;
+}
+
+#head{margin-bottom: 65px;
+    margin-top: 30px;
+}
+
+#title{
+        font-size: 50px;
+}
+
+#playbutton{
+    font-size: 60px;
+    margin-left: 80px;
+    margin-right: 100px;
+}
+
+#playbutton:hover {
+    opacity: 0.7;
+}
+
+#pic{
+    width: 160px;
+    height: 160px;
+    margin-right: 150px;
+}
+
+#songname{
+    font-size: 40px;
+}
+
+#greybg{
+    background-color: lightgrey;
+    opacity: 0.5;
+}
+

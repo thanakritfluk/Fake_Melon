@@ -24,7 +24,6 @@ var/
 wheels/
 *.egg-info/
 .installed.cfg
-*.egg
 MANIFEST
 
 # PyInstaller
@@ -106,6 +105,4 @@ venv.bak/
 .mypy_cache/
 
 .gitignore
-.idea/inspectionProfiles/
-.idea/vcs.xml
 .idea/

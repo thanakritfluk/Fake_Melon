@@ -13,7 +13,7 @@ Users = mongo.db.users
 
 @fake_melon.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('chart.html')
 
 
 @fake_melon.route('/login', methods=['GET', 'POST'])
@@ -23,9 +23,10 @@ def login():
         user = Users.find_one({"name": form.username.data})
         if user and User.validate_login(str(user['password']), str(form.password.data)):
             user_obj = User(user['name'])
+            print(user_obj)
             login_user(user_obj)
             flash("Logged in successfully!", category='success')
-            return redirect(request.args.get("next") or url_for("write"))
+            return redirect(request.args.get("next") or url_for("home"))
         flash("Wrong username or password!", category='error')
     return render_template('login.html', title='login', form=form)
 
@@ -36,16 +37,20 @@ def logout():
     return redirect(url_for('login'))
 
 
-@fake_melon.route('/write', methods=['GET', 'POST'])
-@login_required
-def write():
-    return render_template('write.html')
+@fake_melon.route('/song_detail')
+def song_detail():
+    return render_template('songdetail.html')
 
 
-@fake_melon.route('/settings', methods=['GET', 'POST'])
+@fake_melon.route('/playlist')
 @login_required
-def settings():
-    return render_template('settings.html')
+def playlist():
+    return render_template('playlist.html')
+
+
+@fake_melon.route('/regis')
+def registration():
+    return render_template('regist.html')
 
 
 @lm.user_loader

@@ -1,0 +1,136 @@
+#chart-body {
+    max-width: 1920px;
+    min-width: 1000px;
+    width: auto;
+    max-height: fit-content;
+    background-color:#a09e9e;
+    font-family: 'Barlow', sans-serif;
+}
+
+#chart-content {
+    background-color: #FFFFFF;
+    width: 1200px;
+    min-width: 1000px;
+    max-width: 1535px;
+    contain: initial;
+    height: auto;
+    padding-left: 85px;
+    padding-top: 55px;
+    padding-bottom: 0px;
+    
+}
+.log-text {
+    text-align: right;
+    padding-right: 85px;
+    font-size: 15pt;
+}
+.chart-header {
+    color: #636262;
+    font-size: 60px;
+}
+
+#chart-rankbox {
+    margin-left: 150px;
+    margin-top: 40px;
+    margin-right: 50px;
+    width: 1030px;
+    height: auto;
+    padding-bottom: 30px;
+    
+}
+
+.chart-number {
+    font-size: 45px;
+    color: #a09e9e;
+    text-align: center;
+}
+
+.chart-playicon {
+    font-size: 40px;
+    text-align: center;
+    color: #707070;
+}
+
+.chart-namesong {
+    font-size: 20px;
+    color: #707070;
+}
+
+.addicon {
+    font-size: 40px;
+    color: #707070;
+
+}
+
+.chart-playicon:hover {
+    opacity: 0.7;
+}
+
+.addicon:hover {
+    opacity: 0.7;
+}
+
+.chart-favicon {
+    color: #707070;
+    font-size: 40px;
+}
+
+.chart-favicon:hover {
+    opacity: 0.7;
+}
+
+#banner{
+    max-width: 1920px;
+    width: auto;
+    height: 120px;
+    align-content: start;
+    background: url(image/ataulfomangoes.jpg) ;
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+#mango-logo{
+    height: 50px;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 300px;
+}
+
+#search{
+    margin-top: 30px;
+}
+
+
+#inbanner{
+    align-self: center;
+}
+#searchingbox{
+    width: 550px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+#searchingbutton{
+    height: 40px;
+    margin-top: 30px;
+}
+
+#user-icon {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-name{
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-icon:hover {
+    opacity: 0.7;
+}
+
+

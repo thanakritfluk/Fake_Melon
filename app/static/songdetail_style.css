@@ -1,0 +1,151 @@
+#song-body {
+    max-width: 1920px;
+    min-width: fit-content;
+    width: auto;
+    max-height: fit-content;
+    background-color: rgb(218, 216, 216);
+    font-family: 'Barlow', sans-serif;
+
+}
+
+#song-content {
+    background-color: #FFFFFF;
+    max-width: 1535px;
+    min-width: max-content;
+    contain: initial;
+    width: 1200px;
+    height: auto;
+    padding-top: 55px;
+    padding-bottom: 60px;
+
+}
+
+#banner {
+    max-width: 1920px;
+    width: auto;
+    height: 120px;
+    align-content: start;
+    background: url(image/ataulfomangoes.jpg);
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+#mango-logo {
+    height: 50px;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 300px;
+}
+
+#search {
+    margin-top: 30px;
+}
+
+#inbanner {
+    align-self: center;
+}
+
+#searchingbox {
+    width: 550px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+#searchingbutton {
+    height: 40px;
+    margin-top: 30px;
+}
+
+#user-icon {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-name {
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-icon:hover {
+    opacity: 0.7;
+}
+
+#song-box {
+    background-color: rgb(252, 236, 196);
+    max-width: 1400px;
+    width: 1100px;
+    height: 500px;
+    margin-top: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 60px;
+    padding-top: 45px;
+}
+
+#song-backarrow {
+    color: #707070;
+    font-size: 60px;
+    margin-left: 35px;
+    display: inline;
+    opacity: 0.75;
+}
+
+.song-image {
+    width: 400px;
+    align-self: center;
+}
+
+.song-image-box {
+    margin-left: 20px;
+}
+
+.song-header {
+    font-size: 50px;
+    color: #6b6b6b;
+    margin: 20px 10px 10px 10px;
+}
+
+.song-detail {
+    margin-top: 15px;
+    font-size: 35px;
+    margin-left: 10px;
+    color: #707070;
+}
+
+.song-num-of-likes {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #707070;
+}
+
+.song-allicon {
+
+}
+
+#song-fav-icon:hover {
+    opacity: 1;
+}
+
+#song-fav-icon {
+    font-size: 60px;
+    color: #707070;
+    opacity: 0.75;
+}
+
+#song-addicon {
+    font-size: 60px;
+    color: #707070;
+    opacity: 0.75;
+}
+
+#song-backarrow:hover {
+    opacity: 1;
+}
+
+#song-addicon:hover {
+    opacity: 1;
+}

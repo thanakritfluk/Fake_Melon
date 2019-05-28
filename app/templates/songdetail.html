@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+<!doctype html>
+
+<title>Information</title>
+{% block content %}
+    <body id="song-body">
+
+    <div class="container" id="song-content">
+
+        <div class="row" id="song-box">
+            <div class="col-4 song-image-box">
+                <div class="song-num-of-likes">Likes:</div>
+                <img class="song-image" src="/app/static/image/dalladalla.jpg" alt="imagesong">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6 song-detail-box">
+                <h1 class="song-header">SONG: DALLA DALLA</h1>
+                <h3 class="song-artist song-detail">Artist: Itzy</h3>
+                <h3 class="song-genre song-detail">Genre: K-POP</h3>
+                <h3 class="song-release song-detail">Release Date: </h3>
+                <h3 class="song-rank song-detail">Rank: 1</h3>
+                <h3 class="song-albms song-detail">Albums: </h3>
+            </div>
+
+        </div>
+
+        <div class="row song-allicon">
+            <div class="col-5">
+                <i class="fas fa-arrow-left" id="song-backarrow"></i>
+            </div>
+            <div class="col-1">
+                <i class="fas fa-plus" id=song-addicon></i>
+            </div>
+            <div class="col-2">
+                <i class="far fa-heart" id="song-fav-icon"></i>
+            </div>
+            <div class="col-2"></div>
+
+        </div>
+
+    </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+
+
+{% endblock %}
