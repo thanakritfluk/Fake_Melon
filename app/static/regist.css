@@ -1,17 +1,68 @@
-.regist-page{
-    font-family: 'Barlow', sans-serif;
-    width: auto;
-    max-width: 1920px;
-    min-width: fit-content;
-}
+        .regist-page {
+            max-width: 160rem;
+            min-width: 130rem;
+            /* width: auto; */
+            height: auto;
+            /* max-height: fit-content; */
+            background-color: #dfdfdf;
+            font-family: 'Barlow', sans-serif;
+            margin: auto;
+        }
+        
+        .regist-content {
+            background-color: #FFFFFF;
+            width: auto;
+            min-width: 95rem;
+            max-width: 95rem;
+            /* contain: initial; */
+            height: auto;
+            padding-left: 5rem;
+            padding-top: 3.5rem;
+            padding-right: 5rem;
+            margin-top: 3rem;
+        }
+        
+        #regist-main-header {
+            font-size: 4rem;
+            color: #333333;
+            font-weight: initial;
+        }
+        
+        #regist-box {
+            margin: 2rem 2rem 5rem 2rem;
+        }
+        
+        .regist-header {
+            font-size: 3rem;
+            font-weight: initial;
+            font-style: italic;
+            color: dimgray;
+        }
+        
+        .regist-button {
+            margin-top: 3rem;
+            text-align: center;
+            padding-right: 2rem;
+        }
 
-
-.middletest {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-}
-
+        #regis-signup-btn {
+            margin-left: 3rem;
+            height: 4rem;
+            width: 8rem;
+            margin-right: 3rem;
+            font-size: 1.7rem;
+        }
+        
+        .regist-blanket {
+            height: 4rem;
+            font-size: 2rem;
+        }
+        
+        .middletest {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
