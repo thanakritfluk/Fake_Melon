@@ -32,12 +32,12 @@
 <body>
 <nav class="navbar navbar-light bg-light" id="banner">
     <div class="row">
-        <div class="col-3">
+        <div class="col-sm-3">
             <a href="{{ url_for('home') }}">
                 <img src="/app/static/image/mangologo.png" id="mango-logo" height="80" width=auto;>
             </a>
         </div>
-        <div class="col-6 ">
+        <div class="col-sm-6 ">
             <form class="form-inline">
                 <div class="form-group">
                     <div class="input-group mb-3" id="searcing">
@@ -51,7 +51,7 @@
             </form>
         </div>
 
-        <div class="col-3" id="user-column">
+        <div class="col-sm-3" id="user-column">
             <a id="user-name">USER NAME</a>
             <a href="{{ url_for('playlist') }}">
                 <i class="fas fa-user " id="user-icon"> </i></a>
