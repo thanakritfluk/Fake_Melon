@@ -1,101 +1,115 @@
 #chart-body {
-    max-width: 1920px;
-    min-width: 1000px;
-    width: auto;
-    max-height: fit-content;
-    background-color:#a09e9e;
+    max-width: 160rem;
+    min-width: 130rem;
+    /* width: auto; */
+    height: auto;
+    /* max-height: fit-content; */
+    background-color: #dfdfdf;
     font-family: 'Barlow', sans-serif;
+    margin: auto;
 }
 
 #chart-content {
     background-color: #FFFFFF;
-    width: 1200px;
-    min-width: 1000px;
-    max-width: 1535px;
-    contain: initial;
+    width: auto;
+    min-width: 95rem;
+    max-width: 95rem;
+    /* contain: initial; */
     height: auto;
-    padding-left: 85px;
-    padding-top: 55px;
-    padding-bottom: 0px;
+    padding-left: 5rem;
+    padding-top: 3.5rem;
+    padding-right: 5rem;
     
 }
 .log-text {
-    text-align: right;
-    padding-right: 85px;
-    font-size: 15pt;
+    text-align: end;
+    font-size: 2rem;
+    padding-right: 5rem;
+    margin-top: -1.5rem;
+    font-weight: bold;
 }
 .chart-header {
     color: #636262;
-    font-size: 60px;
+    font-size: 5rem;
 }
 
 #chart-rankbox {
-    margin-left: 150px;
-    margin-top: 40px;
-    margin-right: 50px;
-    width: 1030px;
-    height: auto;
+    margin-left: 9.5rem;
+    margin-top: 2.5rem;
+    margin-right: 2.6rem;
+    height: fit-content;
     padding-bottom: 30px;
+    width: 65rem;
     
 }
 
 .chart-number {
-    font-size: 45px;
+    font-size: 3.5rem;
     color: #a09e9e;
-    text-align: center;
 }
 
 .chart-playicon {
-    font-size: 40px;
+    font-size: 3.5rem;
     text-align: center;
-    color: #707070;
+    color: #a9a9a9;
+    margin: auto;
 }
 
 .chart-namesong {
-    font-size: 20px;
+    font-size: 1.85rem;
     color: #707070;
+    margin: auto;
 }
 
 .addicon {
-    font-size: 40px;
+    font-size: 3.5rem;
     color: #707070;
+    margin: auto;
+    text-align: center;
+    margin-top: 0rem;
 
 }
 
 .chart-playicon:hover {
     opacity: 0.7;
+    color: #98ce1a;
 }
 
 .addicon:hover {
     opacity: 0.7;
+    color: black
+    
 }
 
 .chart-favicon {
-    color: #707070;
-    font-size: 40px;
+    color: #a9a9a9;
+    font-size: 3.5rem;
+    /* margin: auto; */
+    text-align: center;
 }
 
 .chart-favicon:hover {
     opacity: 0.7;
+    color: #fe7f7f;
 }
 
 #banner{
-    max-width: 1920px;
-    width: auto;
-    height: 120px;
+   /* min-width: 120rem; */
+    /* max-width: 120rem; */
+    height: 13rem;
+    /* width: auto; */
     align-content: start;
-    background: url(image/ataulfomangoes.jpg) ;
+    background: url(../static/image/ataulfomangoes.jpg);
     background-size: cover;
     opacity: 0.9;
-
+    margin-bottom: 0rem;
+    display: inherit;
 }
 
 #mango-logo{
-    height: 50px;
+    height: 11rem;
     width: auto;
-    margin-top: 15px;
-    margin-left: 100px;
-    margin-right: 300px;
+    margin: auto;
 }
 
 #search{
@@ -107,26 +121,47 @@
     align-self: center;
 }
 #searchingbox{
-    width: 550px;
-    height: 40px;
-    margin-top: 30px;
+    width: 40rem;
+    height: 4rem;
+    margin-top: 3.5rem;
+    font-size: 2rem;
 }
 
 #searchingbutton{
-    height: 40px;
-    margin-top: 30px;
+    height: 3.8rem;
+    margin-top: 3.6rem;
+    font-size: 1.25rem;
 }
 
 #user-icon {
-    font-size: 40px;
-    margin-top: 15px;
-    margin-left: 15px;
+    font-size: 3.5rem;
+    margin: 2rem;
+    color: #070707;
+}
+
+.log-icon {
+    font-size: 3.5rem;
+    margin: 2rem;
+    color: #070707;
+}
+
+#login-icon:hover {
+    color: #98ce1a;
+}
+
+#logout-icon:hover {
+    color: #fe7f7f;
+}
+
+#user-column {
+    margin: auto;
+    margin-top: 1.6rem;
 }
 
 #user-name{
-    font-size: 30px;
-    margin-top: 15px;
-    margin-left: 15px;
+    font-size: 2.8rem;
+    margin-top: 2.5rem;
+    margin-left: 2rem;
 }
 
 #user-icon:hover {

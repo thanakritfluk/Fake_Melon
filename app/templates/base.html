@@ -51,8 +51,7 @@
             </form>
         </div>
 
-        <div class="col-3">
-            <div class="form-group mb-3"></div>
+        <div class="col-3" id="user-column">
             <a id="user-name">USER NAME</a>
             <a href="{{ url_for('playlist') }}">
                 <i class="fas fa-user " id="user-icon"> </i></a>
@@ -60,10 +59,10 @@
 
 
             {% if current_user.is_authenticated() %}
-                <a href="{{ url_for('logout') }}"><i class="fas fa-power-off " id="user-icon"> </i></a>
+                <a href="{{ url_for('logout') }}"><i class="fas fa-power-off log-icon" id="logout-icon"> </i></a>
                 <div class="log-text">Logout</div>
             {% else %}
-                <a href="{{ url_for('login') }}"><i class="fas fa-power-off " id="user-icon"> </i></a>
+                <a href="{{ url_for('login') }}"><i class="fas fa-power-off log-icon" id="login-icon"> </i></a>
                 <div class="log-text">Login</div>
             {% endif %}
         </div>

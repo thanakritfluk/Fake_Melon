@@ -20,59 +20,6 @@
 
 }
 
-#banner {
-    max-width: 1920px;
-    width: auto;
-    height: 120px;
-    align-content: start;
-    background: url(image/ataulfomangoes.jpg);
-    background-size: cover;
-    opacity: 0.9;
-
-}
-
-#mango-logo {
-    height: 50px;
-    width: auto;
-    margin-top: 15px;
-    margin-left: 100px;
-    margin-right: 300px;
-}
-
-#search {
-    margin-top: 30px;
-}
-
-#inbanner {
-    align-self: center;
-}
-
-#searchingbox {
-    width: 550px;
-    height: 40px;
-    margin-top: 30px;
-}
-
-#searchingbutton {
-    height: 40px;
-    margin-top: 30px;
-}
-
-#user-icon {
-    font-size: 40px;
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-#user-name {
-    font-size: 30px;
-    margin-top: 15px;
-    margin-left: 15px;
-}
-
-#user-icon:hover {
-    opacity: 0.7;
-}
 
 #song-box {
     background-color: rgb(252, 236, 196);
@@ -122,9 +69,6 @@
     color: #707070;
 }
 
-.song-allicon {
-
-}
 
 #song-fav-icon:hover {
     opacity: 1;
