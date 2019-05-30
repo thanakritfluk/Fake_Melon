@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
-<!doctype html>
+<!DOCTYPE html>
 {% block content %}
 
+<title>Login</title>
+
+<!-- <body class="login-page"> -->
 <body class="login-page">
-    <div class="container login-content">
+    <div class="login-page-content">
+      <div class="container login-content">
         <h1 id="login-main-header">Login</h1>
         <br>
-        <a style="font-size: 1.5rem;">Please login before rating!</a>
+        <a style="    font-size: 1.8rem;
+        color: #fff3f0;
+        opacity: 0.8;">Please login before rating!</a>
         <div id="login-box">
             <form action="" method="POST" name="form">
                 {{ form.hidden_tag() }}
@@ -35,7 +41,9 @@
                 </div>
             </form>
         </div>
+    </div>  
     </div>
+    
 
 
     <!-- Optional JavaScript -->

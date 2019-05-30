@@ -4,27 +4,34 @@
     /* width: auto; */
     height: auto;
     /* max-height: fit-content; */
-    background-color: #dfdfdf;
-    font-family: 'Barlow', sans-serif;
+    background-color: #454b51;
+    font-family: 'Josefin Sans', sans-serif;
     margin: auto;
 }
+
+.login-page-content {
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+    margin: auto;
+    max-width: 97rem;
+    opacity: 0.85;
+}
 .login-content {
-    background-color: #FFFFFF;
+    background-color: transparent;
     width: auto;
     min-width: 95rem;
     max-width: 95rem;
     /* contain: initial; */
     height: auto;
     padding-left: 5rem;
-    padding-top: 3.5rem;
+    padding-top: 12rem;
     padding-right: 5rem;
-    margin-top: 3rem;
+    margin-top: 0rem;
 }
 
 #login-main-header {
-    font-size: 4rem;
-    color: #333333;
-    font-weight: initial;
+    font-size: 4.5rem;
+    color: #ffffffde;
+    font-weight: 200;
 }
 
 #login-box {
@@ -33,14 +40,25 @@
 
 .login-header {
     font-size: 3rem;
-    font-weight: initial;
+    font-weight: 700;
     font-style: italic;
-    color: dimgray;
+    color: white;
 }
 
 .login-blanket {
     height: 4rem;
     font-size: 2rem;
+    background-color: #343a405c;
+    border: 0px;
+    color: white;
+}
+
+.login-blanket:focus {
+    height: 4rem;
+    font-size: 2rem;
+    background-color: #343a405c;
+    border: 0px;
+    color: white;
 }
 
 .login-button-group {
@@ -52,9 +70,19 @@
 .login-page-button {
     margin-left: 3rem;
     height: 4rem;
-    width: 8rem;
+    width: 10rem;
     margin-right: 3rem;
     font-size: 1.7rem;
+    /* background-color: #ffffff42; */
+    border: 0px;
+    border-bottom: 1px solid;
+    color: white;
+}
+
+.login-page-button:hover {
+    background-color: transparent;
+    color: #5f5353;
+    border-bottom: 1px solid #5f5353;
 }
 
 .containertest {
