@@ -209,7 +209,12 @@ hr.line {
     color: darkorange;
     font-weight: bold;
 }
-
+#mango-logo:hover {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
 #playlist-link {
     font-size: 2rem;
     color: whitesmoke;
