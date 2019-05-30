@@ -7,17 +7,24 @@
     background-color: #dfdfdf;
     font-family: 'Barlow', sans-serif;
     margin: auto;
+
+}
+.detail-page-content {
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+    max-width: 120rem;
+    margin: auto;
+    height: unset;
 }
 
 #song-content {
-    background-color: #FFFFFF;
+    background-color: transparent;
     width: auto;
     min-width: 95rem;
-    max-width: 95rem;
+    max-width: 120rem;
     /* contain: initial; */
     height: auto;
     padding-left: 5rem;
-    padding-top: 3.5rem;
+    padding-top: 10rem;
     padding-right: 5rem;
     padding-bottom: 3rem;
 
@@ -38,8 +45,8 @@
     padding-top: 2rem;
 }
 
-#song-backarrow {
-    color: #707070;
+.song-backarrow {
+    color: #ffffff;
     font-size: 5rem;
     margin-left: 3.5rem;
     display: inline;
@@ -48,6 +55,7 @@
 
 .song-image {
     width: 31rem;
+    height: 31rem;
     align-self: center;
     margin-top: 2.5rem;
 }
@@ -59,55 +67,84 @@
 
 .song-header {
     font-size: 3.8rem;
-    color: #6b6b6b;
+    color: white;
     margin: 1.5rem 1rem 1rem 1rem;
     font-weight: 500;
 }
+
+.song-artist {
+    font-size: 3.5rem;
+    margin-left: 1rem;
+    color: whitesmoke;
+}
+
 
 .song-detail-box {
     margin-left: 2rem;
 }
 
 .song-detail {
-    margin-top: 1.2rem;
+    margin-top: 3rem;
     font-size: 3.3rem;
-    margin-left: 1rem;
-    color: #707070;
+    margin-left: 0rem;
+    color: white;
 }
 
 .song-num-of-likes {
     margin-bottom: 1.2rem;
     font-size: 3.7rem;
-    color: #707070;
+    color: white;
+    margin-top: 2rem;
 }
 
 
-#song-fav-icon:hover {
+.song-fav-icon:hover {
     opacity: 1;
-    color: #fe7f7f;
+    color: #d60000;
 }
 
-#song-fav-icon {
-    color: #707070;
+.song-fav-icon {
+    color: white;
     font-size: 5rem;
     margin-left: 3.5rem;
     display: inline;
     opacity: 0.8;
 }
 
-#song-addicon {
-    color: #707070;
+.song-addicon {
+    color:white;
     font-size: 5rem;
     margin-left: 3.5rem;
     display: inline;
     opacity: 0.8;
 }
 
-#song-backarrow:hover {
-    color: chocolate;
+.song-backarrow:hover {
+    color:#333333;
     opacity: 1;
 }
 
-#song-addicon:hover {
+.song-addicon:hover {
     opacity: 1;
+    color: #e1ff00;
+}
+
+.detail-line {
+    border-top: 2px solid #fffefe;
+    opacity: 0.7;
+}
+
+.song-allicon {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-top: 2rem;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
 }
