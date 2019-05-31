@@ -1,8 +1,67 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 {% block content %}
-    <title>Search result</title>
-    <body>
+<title>Search results</title>
 
-    </body>
+<body>
+    <div class="container" id="display-content">
+        <h1 id="result-header">
+            Results:
+        <div id="searched-words">
+            la vie en rose
+        </div>
+        </h1>
+
+        <hr class="line">
+
+        <h2 class="no-result"> No results</h2>
+<div>
+  
+        <div class="row result-table-header">
+            <div class="col-1 result-album-header ">Albums</div>
+            <div class="col-2 result-play-header">Play music</div>
+            <div class="col-2 result-title-header">
+                Title
+            </div>
+            <div class="col-3 result-artist-header">Artist</div>
+            <div class="col-2 result-fav-header">Favourite</div>
+            <div class="col-2 result-like-header">Likes
+            </div>
+        </div>
+        <br>
+
+        <ul class="result-list">
+            <li class="result-item">
+            <li class="row playlist-item">
+                <div class="col-1">
+                    <img src="/app/static/image/test1.jpg" class="result-image" alt="">
+                </div>
+                <div class="col-1 chart-playicon result-play"><i class="fas fa-play play-icon2"></i></div>
+                <div class="col-2 chart-namesong">
+                    <a href="{{ url_for('song_detail') }}">
+                        <div class="chart-namesong"> LA VIE EN ROSE</div>
+                    </a>
+                </div>
+                <div class="col-2 result-artist">IZ*ONE</div>
+                <div class="col-2 addicon add-icon"><i class="fas fa-plus"></i></div>
+                <div class="col-2 fav-icon chart-favicon">
+                        <i class="far fa-heart heart-fav"></i>
+                        <div class="num-likes"> 100000 </div>
+                </div>
+
+            </li>
+            <hr class="line">
+
+
+        </ul>  
+</div>
+
+
+
+
+
+    </div>
+
+
+</body>
 {% endblock %}
