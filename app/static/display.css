@@ -88,3 +88,15 @@ text-align: center;
     text-decoration-line: underline;
     text-decoration-style: inherit;
 }
+
+.no-result {
+    position: fixed;
+    font-size: 3rem;
+    color: white;
+    visibility:hidden;
+    width: 100%;
+    max-width: 100rem;
+    text-align: center;
+    margin-top: 6rem;
+    opacity: 0.6;
+}
