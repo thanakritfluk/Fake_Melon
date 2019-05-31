@@ -3,6 +3,8 @@ from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
 from .forms import LoginForm
 from .user import User
+import flask_login
+import bson
 
 Track = mongo.db.Tracks
 Customers = mongo.db.Customers
@@ -14,18 +16,50 @@ Users = mongo.db.users
 @fake_melon.route('/')
 def home():
     track_list = Track.find().sort("num_favourite", -1).limit(50)
+    like_user = None
+    fav_user = None
+    if flask_login.current_user.is_authenticated():
+        name = Users.find_one({"username": flask_login.current_user.get_id()})
+        for key, val in name.items():
+            if '_id' in key:
+                c_user = Play_list.find_one({"_id": val})
+                if c_user is not None:
+                    for key, val in c_user.items():
+                        if 'playlist' in key:
+                            fav_user = val
+                        if 'likes' in key:
+                            like_user = val
     name = []
     like = []
     artist = []
+    lc = []
+    fc = []
     for i in range(50):
         for key, val in track_list.next().items():
             if 'track_name' in key:
                 name.append(val)
+                if  like_user is not None:
+                    if val in like_user:
+                        lc.append(1)
+                    else:
+                        lc.append(0)
+                else:
+                    lc.append(0)
+                if  fav_user is not None:
+                    if val in fav_user:
+                        fc.append(1)
+                    else:
+                        fc.append(0)
+                else:
+                    fc.append(0)
+                print("val= ", val)
+                print("fav_user= ", fav_user)
+                print(val in fav_user)
             if 'num_favourite' in key:
                 like.append(val)
             if 'artist' in key:
                 artist.append(val)
-    return render_template('chart.html', name=name, like=like, artist=artist)
+    return render_template('chart.html', name=name, like=like, artist=artist, lc=lc, fc=fc)
 
 
 @fake_melon.route('/login', methods=['GET', 'POST'])
@@ -80,15 +114,77 @@ def song_detail():
 def playlist():
     return render_template('playlist.html')
 
-@fake_melon.route('/like')
+@fake_melon.route('/like', methods=['POST'])
 @login_required
 def like():
-    return render_template('playlist.html')
+    s_name = request.form['name']
+    name = Users.find_one({"username": flask_login.current_user.get_id()})
+    id = 0
+    for key, val in name.items():
+        if '_id' in key:
+            id = val
+    tmp = Play_list.find_one({"_id": id})
+    tmp1 = None
+    for key, val in tmp.items():
+        if 'likes' in key:
+            tmp1 = val
+    if tmp1 is not None:
+        size = len(bson.BSON.encode(tmp1))
+        tmp.update({
+            { "$set": { "likes."+size+1 : s_name}}
+        })
+    else:
+        Play_list.insert_one({
+            "_id": id,
+            "playlist": {},
+            "likes": {1: s_name}
+        })
+    track_detail = Track.find_one({"track_name": name})
+    like = 0
+    for key, val in track_detail.items():
+        if 'num_favourite' in key:
+            like = val
+    Track_detail.update({
+        { "$set": { "num_favourite" : like+1}}
+    })
+    return redirect(url_for('home'))
 
-@fake_melon.route('/fav')
+@fake_melon.route('/fav', methods=['POST'])
 @login_required
 def fav():
-    return render_template('playlist.html')
+    s_name = request.form['name']
+    name = Users.find_one({"username": flask_login.current_user.get_id()})
+    id = 0
+    for key, val in name.items():
+        if '_id' in key:
+            id = val
+    tmp = Play_list.find_one({"_id": id})
+    tmp1 = None
+    if tmp is not None:
+        for key, val in tmp.items():
+            if 'playlist' in key:
+                tmp1 = val
+        if tmp1 is not None:
+            maximum = 0
+            for key, val in tmp1.items():
+                if int(key) > maximum:
+                    maximum = int(key)
+            size = maximum
+            st = "playlist.{size}".format(size=size)
+            Play_list.update_one({'_id': id},{"$set" :{st: s_name}})
+        else:
+            Play_list.insert_one({
+                "_id": id,
+                "playlist": {"1": s_name},
+                "likes": {}
+            })
+    else:
+        Play_list.insert_one({
+            "_id": id,
+            "playlist": {"1": s_name},
+            "likes": {}
+        })
+    return redirect(url_for('home'))
 
 
 @fake_melon.route('/registration', methods=['POST', 'GET'])

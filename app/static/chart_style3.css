@@ -136,10 +136,14 @@ h1.chart-header {
     color: #ffffff;
     margin: auto;
     padding-left: 0rem;
-    border: 0;
-    background: none; 
-    box-shadow: none; 
-    border-radius: 0px;
+}
+
+.namesong-submit{
+    text-align:left;
+    width:100%; 
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    hyphens: auto;
 }
 .chart-namesong:hover {
     font-weight: bolder;
@@ -150,7 +154,29 @@ h1.chart-header {
     margin: auto;
     text-align: left;
     margin-left: 0rem;
+}
 
+.submit {
+    border: 0;
+    background: none; 
+    box-shadow: none; 
+    border-radius: 0px;
+}
+
+.likeicon{
+    color: #e800008a;
+    font-size: 3.5rem;
+    /* margin: auto; */
+    text-align: center;
+    display: inherit;
+    margin-top: 0.6rem;
+}
+.checkicon {
+    font-size: 3.5rem;
+    color: #78ff83cf;
+    margin: auto;
+    text-align: left;
+    margin-left: 0rem;
 }
 
 .num-likes {
