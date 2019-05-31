@@ -53,6 +53,11 @@ def registration():
     return render_template('regist.html')
 
 
+@fake_melon.route('/search')
+def search():
+    return render_template('display.html')
+
+
 @lm.user_loader
 def load_user(username):
     u = Users.find_one({"name": username})

@@ -6,6 +6,74 @@
     min-width: fit-content;
 }
 
+#playlist-content {
+    margin: auto;
+    padding-top: 10rem;
+}
+
+#playlist-header {
+    font-size: 3.5rem;
+    color: white;
+    margin-left: 1rem;
+}
+.playlist-list {
+    padding-left: 0rem;
+}
+
+.playlist-item {
+    display:flex;
+}
+.playlist-image {
+    width: 10rem;
+    height: 10rem;
+    margin-left: 2rem;
+}
+
+.playlist-artist {
+    font-size: 2rem;
+    color: white;
+    align-self: center;
+    text-align: left;
+    padding-left: 0rem;
+}
+
+.remove-icon {
+    color: white;
+    font-size: 4rem;
+    align-self: center;
+    text-align: center;
+    margin-right: -1rem;
+}
+
+.playlist-table-header {
+    color: white;
+    font-size: 2.5rem;
+    opacity: 0.7;
+    margin-left: 1rem;
+}
+
+.remove-icon:hover {
+    color: crimson;
+}
+
+.playlist-play {
+    text-align: center;
+    margin-right: -1.5rem;
+    font-size: 3rem;
+}
+
+.play-header {
+    text-align: end;
+}
+
+.remove-header {
+    text-align: center;
+}
+
+.playlist-title {
+    padding-left: 3.5rem;
+}
+
 .middle {
     position: absolute;
     top: 50%;
@@ -51,10 +119,5 @@
 
 #songname{
     font-size: 40px;
-}
-
-#greybg{
-    background-color: lightgrey;
-    opacity: 0.5;
 }
 
