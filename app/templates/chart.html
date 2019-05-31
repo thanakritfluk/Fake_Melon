@@ -21,10 +21,10 @@
                 </div>
 
                 <ul class="song-chart-list">
-                    {% for i in range(0, 50) %}
+                    {% for i in range(1, 50) %}
                         <li class="list-item">
-                            <div class="col-1 chart-number">{{ i+1}}</div>
-                            <div class="col-2 chart-playicon"><a href="https://www.google.com" target="_blank"><i
+                            <div class="col-1 chart-number">{{i}}</div>
+                            <div class="col-2 chart-playicon"><a href="{{link[i]}}" target="_blank"><i
                                     class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
                                 <form action="{{ url_for('song_detail')}}" method="POST">
