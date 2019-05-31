@@ -13,10 +13,10 @@ Users = mongo.db.users
 
 @fake_melon.route('/')
 def home():
-    track_list = Track.find().sort("num_favourite",-1).limit(50)
+    track_list = Track.find().sort("num_favourite", -1).limit(50)
     name = []
     like = []
-    for i in range (50):
+    for i in range(50):
         for key, val in track_list.next().items():
             if 'track_name' in key:
                 name.append(val)
@@ -57,8 +57,27 @@ def playlist():
     return render_template('playlist.html')
 
 
-@fake_melon.route('/regis')
+@fake_melon.route('/registration', methods=['POST', 'GET'])
 def registration():
+    form = LoginForm()
+    if request.method == "POST":
+        display_name = request.form['display_name']
+        username = request.form['username']
+        password = request.form['password']
+        if Users.count_documents({"username": username}) != 0:
+            return render_template('regist.html', error="User name already exits")
+        else:
+            _id = Users.insert_one({
+                "display_name": display_name,
+                "username": username,
+                "password": password
+            })
+            insert_id = _id.inserted_id
+            Play_list.insert_one({
+                "_id": insert_id,
+                "list": {}
+            })
+            return render_template('login.html', message="Sign up successful",form=form)
     return render_template('regist.html')
 
 
