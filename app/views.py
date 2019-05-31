@@ -201,7 +201,7 @@ def like():
             like = int(val)
     like += 1
     Track.update_one({"track_name": s_name}, {
-                     "$set": {"num_favourite": str(like)}})
+                     "$set": {"num_favourite": int(like)}})
     return redirect(url_for('home'))
 
 

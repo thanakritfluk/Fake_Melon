@@ -23,7 +23,7 @@
                 <ul class="song-chart-list">
                         {% for i in data %}
                         <li class="list-item">
-                            <div class="col-1 chart-number">1</div>
+                            <div class="col-1 chart-number">{{ loop.index }}</div>
                             <div class="col-2 chart-playicon"><a href="{{i['music_link']}}" target="_blank"><i
                                     class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
