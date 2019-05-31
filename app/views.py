@@ -37,7 +37,6 @@ def login():
             user_obj = User(user['username'])
             login_user(user_obj)
             flash("Logged in successfully!", category='success')
-            print(user_obj.username)
             return redirect(request.args.get("next") or url_for("home"))
         flash("Wrong username or password!", category='error')
     return render_template('login.html', title='login', form=form)
@@ -100,14 +99,24 @@ def registration():
             insert_id = _id.inserted_id
             Play_list.insert_one({
                 "_id": insert_id,
-                "list": {}
+                "playlist": {},
+                "likes": {}
             })
             return render_template('login.html', message="Sign up successful", form=form)
     return render_template('regist.html')
 
 
-@fake_melon.route('/search')
+@fake_melon.route('/search', methods=['POST', 'GET'])
 def search():
+    if request.method == "POST":
+        searching = request.form['search']
+        if searching == "":
+            return redirect(url_for('home'))
+        else:
+            data = Track.find({"track_name": {'$regex': 'Bad', '$options': 'i'}})
+            # for i in data:
+            #     print(i['track_name'])
+            return render_template('display.html', data=data)
     return render_template('display.html')
 
 
