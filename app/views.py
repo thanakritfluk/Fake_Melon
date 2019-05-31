@@ -3,8 +3,6 @@ from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
 from .forms import LoginForm
 from .user import User
-import urllib.request
-from bs4 import BeautifulSoup
 
 Track = mongo.db.Tracks
 Customers = mongo.db.Customers
