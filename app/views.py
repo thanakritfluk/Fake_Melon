@@ -76,9 +76,14 @@ def song_detail():
                            rank=rank)
 
 
-@fake_melon.route('/playlist')
+@fake_melon.route('/like)
 @login_required
-def playlist():
+def like():
+    return render_template('playlist.html')
+
+@fake_melon.route('/fav)
+@login_required
+def fav():
     return render_template('playlist.html')
 
 
@@ -110,6 +115,10 @@ def registration():
 def search():
     return render_template('display.html')
 
+@fake_melon.route('/search')
+def search():
+    return render_template('display.html')
+
 
 @lm.user_loader
 def load_user(username):
@@ -117,3 +126,4 @@ def load_user(username):
     if not u:
         return None
     return User(u['username'])
+
