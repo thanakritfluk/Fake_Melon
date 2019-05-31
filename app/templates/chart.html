@@ -21,40 +21,40 @@
                 </div>
 
                 <ul class="song-chart-list">
-                    {% for i in range(1, 50) %}
+                        {% for i in data %}
                         <li class="list-item">
-                            <div class="col-1 chart-number">{{i}}</div>
-                            <div class="col-2 chart-playicon"><a href="{{link[i]}}" target="_blank"><i
+                            <div class="col-1 chart-number">1</div>
+                            <div class="col-2 chart-playicon"><a href="{{i['music_link']}}" target="_blank"><i
                                     class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
                                 <form action="{{ url_for('song_detail')}}" method="POST">
-                                    <input type="hidden" name="name" value="{{name[i]}}"></input>
-                                    <input type="hidden" name="rank" value="{{i+1}}"></input>
-                                    <input class="chart-namesong namesong-submit submit" type="submit" value="{{name[i]}}"></input>
+                                    <input type="hidden" name="name" value="{{i['track_name']}}"></input>
+                                    <input type="hidden" name="rank" value="1"></input>
+                                    <input class="chart-namesong namesong-submit submit" type="submit" value="{{i['track_name']}}"></input>
                                 </form>
-                                {{ artist[i] }}
+                                {{ i['artist_name']}}
                             </div>
-                            {% if fc == 1 %}
+                            {% if i['track_name'] in fav %}
                                 <div class="col-2 checkicon"><i class="fas fa-check"></i></div>
                             {% else %}
                                 <div class="col-2 addicon">
                                     <form action="{{ url_for('fav')}}"  method="POST">
-                                        <input type="hidden" name="name" value="{{name[i]}}">
+                                        <input type="hidden" name="name" value="{{i['track_name']}}">
                                         <button type="submit"  class="fas fa-plus submit"></button>
                                     </form>
                                 </div>
                             {% endif %} 
                            
-                            {% if lc == 1 %}
+                            {% if i['track_name'] in like %}
                                 <div class="col-2 likeicon" ><i class="fas fa-heart heart-fav"></i>
-                                    <div class="num-likes"> {{like[i]}} </div>
+                                    <div class="num-likes"> {{i['num_favourite']}} </div>
                                 </div>
                                 
                             {% else %}
                                 <div class="col-2 chart-favicon">
                                     <form action="{{ url_for('like')}}"  method="POST">
-                                        <input type="hidden" name="name" value="{{name[i]}}">
-                                        <button type="submit" class="far fa-heart submit"><a style="font-size: 20px;">  {{like[i]}}</a></button>
+                                        <input type="hidden" name="name" value="{{i['track_name']}}">
+                                        <button type="submit" class="far fa-heart submit"><a style="font-size: 20px;"> {{i['num_favourite']}}</a></button>
                                     </form>
                                 </div>
                             {% endif %} 
