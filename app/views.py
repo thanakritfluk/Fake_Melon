@@ -13,7 +13,13 @@ Users = mongo.db.users
 
 @fake_melon.route('/')
 def home():
-    return render_template('chart.html')
+    track_list = Track.find().sort("num_favourite",-1).limit(10)
+    tmp = []
+    for i in range (10):
+        for key, val in track_list.next().items():
+            if 'track_name' in key:
+                tmp.append(val)
+    return render_template('chart.html', value=tmp)
 
 
 @fake_melon.route('/login', methods=['GET', 'POST'])

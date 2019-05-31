@@ -127,6 +127,10 @@ h1.chart-header {
     margin-left: 0rem;
 }
 
+.play-icon2 {
+    color: white;
+}
+
 .chart-namesong {
     font-size: 1.85rem;
     color: #ffffff;
@@ -149,7 +153,7 @@ h1.chart-header {
     font-size: 2rem;
 }
 
-.chart-playicon:hover {
+.play-icon2:hover {
     opacity: 0.7;
     color: #9aff00;
 }
