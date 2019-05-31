@@ -75,13 +75,17 @@ def song_detail():
     return render_template('songdetail.html', name=name, like=like, artist=artist, genre=genre, albums=albums, img=img,
                            rank=rank)
 
+@fake_melon.route('/playlist')
+@login_required
+def playlist():
+    return render_template('playlist.html')
 
-@fake_melon.route('/like)
+@fake_melon.route('/like')
 @login_required
 def like():
     return render_template('playlist.html')
 
-@fake_melon.route('/fav)
+@fake_melon.route('/fav')
 @login_required
 def fav():
     return render_template('playlist.html')
@@ -109,11 +113,6 @@ def registration():
             })
             return render_template('login.html', message="Sign up successful", form=form)
     return render_template('regist.html')
-
-
-@fake_melon.route('/search')
-def search():
-    return render_template('display.html')
 
 @fake_melon.route('/search')
 def search():
