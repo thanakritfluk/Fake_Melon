@@ -21,135 +21,22 @@
                 </div>
 
                 <ul class="song-chart-list">
-                    {%for i in range(0, 10)%} 
+                    {%for i in range(0, 50)%} 
                     <li class="list-item">
                             <div class="col-1 chart-number">{{i+1}}</div>
-                            <div class="col-2 chart-playicon"><a href="www.google.com"><i class="fas fa-play play-icon2"></i></a></div>
+                            <div class="col-2 chart-playicon"><a href="www.google.com"target="_blank"><i class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
                                 <a href="{{ url_for('song_detail') }}">
-                                    <div class="chart-namesong">{{ value[i] }}</div>
+                                    <div class="chart-namesong">{{ name[i] }}</div>
                                 </a>
                             </div>
                             <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
                             <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                                <div class="num-likes"> 100000 </div>
+                                <div class="num-likes"> {{like[i]}} </div>
                             </div>
                         </li>
                         <hr class="line">
                     {%endfor%}
-                    <!-- <li class="list-item">
-                        <div class="col-1 chart-number">1</div>
-                        <div class="col-2 chart-playicon"><a href="www.google.com"><i class="fas fa-play play-icon2"></i></a></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong">{{ value }}</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line"> -->
-                    <!-- <li class="list-item">
-                        <div class="col-1 chart-number">2</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">3</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">4</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">5</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">6</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">7</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line">
-                    <li class="list-item">
-                        <div class="col-1 chart-number">8</div>
-                        <div class="col-2 chart-playicon"><i class="fas fa-play play-icon2"></i></div>
-                        <div class="col-4 chart-namesong">
-                            <a href="{{ url_for('song_detail') }}">
-                                <div class="chart-namesong"> DALLA DALLA <br> BY ITZY</div>
-                            </a>
-                        </div>
-                        <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
-                        <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
-                            <div class="num-likes"> 100000 </div>
-                        </div>
-                    </li>
-                    <hr class="line"> -->
-
                 </ul>
 
 

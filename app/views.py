@@ -3,6 +3,8 @@ from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
 from .forms import LoginForm
 from .user import User
+import urllib.request
+from bs4 import BeautifulSoup
 
 Track = mongo.db.Tracks
 Customers = mongo.db.Customers
@@ -13,13 +15,16 @@ Users = mongo.db.users
 
 @fake_melon.route('/')
 def home():
-    track_list = Track.find().sort("num_favourite",-1).limit(10)
-    tmp = []
-    for i in range (10):
+    track_list = Track.find().sort("num_favourite",-1).limit(50)
+    name = []
+    like = []
+    for i in range (50):
         for key, val in track_list.next().items():
             if 'track_name' in key:
-                tmp.append(val)
-    return render_template('chart.html', value=tmp)
+                name.append(val)
+            if 'num_favourite' in key:
+                like.append(val)
+    return render_template('chart.html', name=name, like=like)
 
 
 @fake_melon.route('/login', methods=['GET', 'POST'])
