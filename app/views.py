@@ -1,3 +1,5 @@
+import pymongo
+
 from app import fake_melon, lm, mongo
 from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
@@ -9,6 +11,14 @@ Customers = mongo.db.Customers
 Play_list = mongo.db.Play_list
 Transactions = mongo.db.Transactions
 Users = mongo.db.users
+
+
+def find_rank(track_name):
+    count = 0
+    for i in Track.find().sort('num_favourite', pymongo.DESCENDING):
+        count += 1
+        if i['track_name'] == track_name:
+            return count
 
 
 @fake_melon.route('/')
@@ -51,7 +61,7 @@ def logout():
 @fake_melon.route('/song_detail', methods=['POST'])
 def song_detail():
     name = request.form['name']
-    rank = request.form['rank']
+    rank = find_rank(str(name))
     artist = 'not found'
     genre = 'not found'
     albums = 'not found'
@@ -119,10 +129,8 @@ def search():
         if searching == "":
             return redirect(url_for('home'))
         else:
-            data = Track.find({"track_name": {'$regex': 'Bad', '$options': 'i'}})
-            # for i in data:
-            #     print(i['track_name'])
-            return render_template('display.html', data=data)
+            data = Track.find({"track_name": {'$regex': str(searching), '$options': 'i'}})
+            return render_template('display.html', searching=searching, data=data)
     return render_template('display.html')
 
 

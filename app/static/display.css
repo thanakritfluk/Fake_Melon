@@ -21,6 +21,10 @@
     padding-left: 0rem;
 }
 
+.result-item {
+    display: inline-table;
+}
+
 .result-image {
     width: 10rem;
     height: 10rem;
