@@ -46,9 +46,30 @@ def logout():
     return redirect(url_for('login'))
 
 
-@fake_melon.route('/song_detail')
+@fake_melon.route('/song_detail', methods=['POST'])
 def song_detail():
-    return render_template('songdetail.html')
+    name = request.form['name']
+    rank = request.form['rank']
+    artist = 'not found'
+    genre = 'not found'
+    albums = 'not found'
+    like = '0'
+    img = 'static/image/notfound.jpg'
+    track_detail = Track.find_one({ "track_name": name })
+    for key, val in track_detail.items():
+            if 'track_name' in key:
+                name = val
+            if 'num_favourite' in key:
+                like = val
+            if 'artist_name' in key:
+                artist = val
+            if 'genre' in key:
+                genre = val
+            if 'albums_name' in key:
+                albums = val
+            if 'url_img' in key:
+                img = val
+    return render_template('songdetail.html', name=name, like=like, artist=artist, genre=genre, albums=albums, img=img, rank=rank)
 
 
 @fake_melon.route('/playlist')

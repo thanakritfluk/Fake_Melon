@@ -26,9 +26,11 @@
                             <div class="col-1 chart-number">{{i+1}}</div>
                             <div class="col-2 chart-playicon"><a href="www.google.com"target="_blank"><i class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
-                                <a href="{{ url_for('song_detail') }}">
-                                    <div class="chart-namesong">{{ name[i] }}</div>
-                                </a>
+                                <form action="{{ url_for('song_detail')}}" method="POST">
+                                    <input type="hidden" name="name" value={{name[i]}}></input>
+                                    <input type="hidden" name="rank" value={{i+1}}></input>
+                                    <input class="chart-namesong" style="border: 0; background: none; box-shadow: none; border-radius: 0px;"type="submit" value={{name[i]}}></input>
+                                </form>
                             </div>
                             <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
                             <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>
