@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 {% block content %}
 
-<title>Top 50 Charts</title>
+    <title>Top 50 Charts</title>
 
-<body class="chart-body">
+    <body class="chart-body">
     <div class="page-content">
         <div class="container" id="chart-content">
             <h1 class="chart-header">TOP 50 CHART</h1>
@@ -21,17 +21,18 @@
                 </div>
 
                 <ul class="song-chart-list">
-                    {%for i in range(0, 50)%} 
-                    <li class="list-item">
-                            <div class="col-1 chart-number">{{i+1}}</div>
-                            <div class="col-2 chart-playicon"><a href="https://www.google.com"target="_blank"><i class="fas fa-play play-icon2"></i></a></div>
+                    {% for i in range(0, 50) %}
+                        <li class="list-item">
+                            <div class="col-1 chart-number">{{ i+1}}</div>
+                            <div class="col-2 chart-playicon"><a href="https://www.google.com" target="_blank"><i
+                                    class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-4 chart-namesong">
                                 <form action="{{ url_for('song_detail')}}" method="POST">
                                     <input type="hidden" name="name" value="{{name[i]}}"></input>
                                     <input type="hidden" name="rank" value={{i+1}}></input>
                                     <input class="chart-namesong" type="submit" value="{{name[i]}}"></input>
                                 </form>
-                                {{artist[i]}}
+                                {{ artist[i] }}
                             </div>
                             <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
                             <div class="col-2 chart-favicon" ><i class="far fa-heart heart-fav"></i>
@@ -39,7 +40,7 @@
                             </div>
                         </li>
                         <hr class="line">
-                    {%endfor%}
+                    {% endfor %}
                 </ul>
 
 
@@ -48,18 +49,17 @@
     </div>
 
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-</body>
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
 
 {% endblock %}
