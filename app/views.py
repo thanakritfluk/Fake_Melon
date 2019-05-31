@@ -27,8 +27,8 @@ def login():
             login_user(user_obj)
             flash("Logged in successfully!", category='success')
             return redirect(request.args.get("next") or url_for("home"))
-        flash("Wrong username or password!", category='error')
-    return render_template('login.html', title='login', form=form)
+        flash("Wrong username or password!", category='error Cup')
+    return render_template('login.html', title='login', form=form,error = "Error Nama")
 
 
 @fake_melon.route('/logout')
