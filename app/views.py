@@ -39,7 +39,7 @@ def login():
             flash("Logged in successfully!", category='success')
             return redirect(request.args.get("next") or url_for("home"))
         flash("Wrong username or password!", category='error Cup')
-    return render_template('login.html', title='login', form=form,error = "Error Nama")
+    return render_template('login.html', title='login', form=form, error="Error Nama")
 
 
 @fake_melon.route('/logout')
@@ -79,6 +79,7 @@ def song_detail():
 @login_required
 def like():
     return render_template('playlist.html')
+
 
 @fake_melon.route('/fav')
 @login_required
@@ -131,4 +132,3 @@ def load_user(username):
     if not u:
         return None
     return User(u['username'])
-
