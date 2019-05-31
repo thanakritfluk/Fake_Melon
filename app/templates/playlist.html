@@ -2,73 +2,128 @@
 <!DOCTYPE html>
 {% block content %}
 
-    <title>My Playlist</title>
-<body class="playlist-page">
-            <div class="row">
-                <div class="col-2" id="greybg">
+<title>My Playlist</title>
+
+<body>
+        <div class="container" id="playlist-content">
+                <h1 id="playlist-header">Playlist</h1>
+                <hr class="line">
+                <hr class="line">
+                <div class="row playlist-table-header">
+                        <div class="col-2">
+                                Albums
+                        </div>
+                        <div class="col-4 playlist-title ">
+                                Title
+                        </div>
+                        <div class="col-2">Artist</div>
+                        <div class="col-2 play-header">Play music
+                        </div>
+                        <div class="col-2 remove-header">remove</div>
                 </div>
-                <div class="col-8">            
-                    <div class="container" id="head">
-                    <a class="head" id="title">Playlist</a>
-                    </div>
-                    <div class="row" id="playlistlist">
-                        <div class="formgroup">
-                                <i class="fas fa-play-circle" id="playbutton"></i>
-                                <img src="/app/static/image/test1.jpg" id="pic">
-                                <a id="songname">La vie en rose</a>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="row" id="playlistlist">
-                            <div class="formgroup">
-                                    <i class="fas fa-play-circle" id="playbutton"></i>
-                                    <img src="/app/static/image/test1.jpg" id="pic">
-                                    <a id="songname">La vie en rose</a>
-                            </div>
-                        </div>
-                        <br>
-
-                    <div class="row" id="playlistlist">
-                                <div class="formgroup">
-                                        <i class="fas fa-play-circle" id="playbutton"></i>
-                                        <img src="/app/static/image/test1.jpg" id="pic">
-                                        <a id="songname">La vie en rose</a>
+                <br>
+                <ul class="playlist-list">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
                                 </div>
-                        </div>
-                        <br>
-
-                    <div class="row" id="playlistlist">
-                                <div class="formgroup">
-                                        <i class="fas fa-play-circle" id="playbutton"></i>
-                                        <img src="/app/static/image/test1.jpg" id="pic">
-                                        <a id="songname">La vie en rose</a>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
                                 </div>
-                    </div>
-                    <br>
-
-                    <div class="row" id="playlistlist">
-                            <div class="formgroup">
-                                    <i class="fas fa-play-circle" id="playbutton"></i>
-                                    <img src="/app/static/image/test1.jpg" id="pic">
-                                    <a id="songname">La vie en rose</a>
-                            </div>
-                        </div>
-                        <br>
-
-                    <div class="row" id="playlistlist">
-                                <div class="formgroup">
-                                        <i class="fas fa-play-circle" id="playbutton"></i>
-                                        <img src="/app/static/image/test1.jpg" id="pic">
-                                        <a id="songname">La vie en rose</a>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
                                 </div>
-                        </div>
-                        <br>
-                </div>
-                <div class="col-2" id="greybg">
-                </div>
-            </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
 
-    
+                        </li>
+                        <hr class="line">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
+                                </div>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
+                                </div>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
+                                </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
+
+                        </li>
+                        <hr class="line">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
+                                </div>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
+                                </div>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
+                                </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
+
+                        </li>
+                        <hr class="line">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
+                                </div>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
+                                </div>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
+                                </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
+
+                        </li>
+                        <hr class="line">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
+                                </div>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
+                                </div>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
+                                </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
+
+                        </li>
+                        <hr class="line">
+                        <li class="row playlist-item">
+                                <div class="col-1">
+                                        <img src="/app/static/image/test1.jpg" class="playlist-image" alt="">
+                                </div>
+                                <div class="col-2 chart-namesong">
+                                        <a href="{{ url_for('song_detail') }}">
+                                                <div class="chart-namesong"> LA VIE EN ROSE</div>
+                                        </a>
+                                </div>
+                                <div class="col-2 playlist-artist">IZ*ONE</div>
+                                <div class="col-2 chart-playicon playlist-play"><i class="fas fa-play play-icon2"></i>
+                                </div>
+                                <div class="col-2 remove-icon"><i class="fas fa-times"></i></div>
+
+                        </li>
+                        <hr class="line">
+                </ul>
+        </div>
+
+
+
+
 </body>
 {% endblock %}
