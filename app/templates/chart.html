@@ -29,8 +29,9 @@
                                 <form action="{{ url_for('song_detail')}}" method="POST">
                                     <input type="hidden" name="name" value={{name[i]}}></input>
                                     <input type="hidden" name="rank" value={{i+1}}></input>
-                                    <input class="chart-namesong" style="border: 0; background: none; box-shadow: none; border-radius: 0px;"type="submit" value={{name[i]}}></input>
+                                    <input class="chart-namesong" type="submit" value={{name[i]}}></input>
                                 </form>
+                                {{artist[i]}}
                             </div>
                             <div class="col-2 addicon"><i class="fas fa-plus"></i></div>
                             <div class="col-2 chart-favicon"><i class="far fa-heart heart-fav"></i>

@@ -136,6 +136,10 @@ h1.chart-header {
     color: #ffffff;
     margin: auto;
     padding-left: 0rem;
+    border: 0;
+    background: none; 
+    box-shadow: none; 
+    border-radius: 0px;
 }
 .chart-namesong:hover {
     font-weight: bolder;

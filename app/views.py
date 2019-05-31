@@ -16,13 +16,16 @@ def home():
     track_list = Track.find().sort("num_favourite",-1).limit(50)
     name = []
     like = []
+    artist = []
     for i in range (50):
         for key, val in track_list.next().items():
             if 'track_name' in key:
                 name.append(val)
             if 'num_favourite' in key:
                 like.append(val)
-    return render_template('chart.html', name=name, like=like)
+            if 'artist' in key:
+                artist.append(val)
+    return render_template('chart.html', name=name, like=like, artist=artist)
 
 
 @fake_melon.route('/login', methods=['GET', 'POST'])
