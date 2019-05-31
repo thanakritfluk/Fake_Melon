@@ -229,6 +229,30 @@ def registration():
             return redirect(url_for('login'))
     return render_template('regist.html')
 
+@fake_melon.route('/remove', methods=['POST'])
+@login_required
+def remove():
+    if request.method == "POST":
+        s_name = request.form['name']
+        name = Users.find_one({"username": flask_login.current_user.get_id()})
+        id = 0
+        for key, val in name.items():
+            if '_id' in key:
+                id = val
+                c_user = Play_list.find_one({"_id": val})
+                if c_user is not None:
+                    for key, val in c_user.items():
+                        if 'playlist' in key:
+                            fav_user = val
+        s = 0
+        print(fav_user)
+        for key, val in fav_user.items():
+            if s_name in val:
+                s = key
+        st = "playlist.{size}".format(size=s)
+        
+        Play_list.update_one({'_id': id}, {"$unset": {st: s_name}})
+    return redirect(url_for('playlist'))
 
 @fake_melon.route('/search', methods=['POST', 'GET'])
 def search():
