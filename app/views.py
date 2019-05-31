@@ -113,7 +113,7 @@ def search():
 
 @lm.user_loader
 def load_user(username):
-    u = Users.find_one({"name": username})
+    u = Users.find_one({"username": username})
     if not u:
         return None
-    return User(u['name'])
+    return User(u['username'])
