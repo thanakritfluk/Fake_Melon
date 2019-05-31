@@ -63,7 +63,7 @@
                 </li>
             </ul>
 
-            <a class="nav-item" id="user-name">username</a>
+           <a class="nav-item" id="user-name">{{current_user.username}}</a>
             <form class="form-inline my-2 my-lg-0" method="POST" action=" {{ url_for('search') }}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchingbox" name="search">
                 <div id="btn-wrapper">
