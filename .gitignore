@@ -105,6 +105,5 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-.gitignore
-.idea/inspectionProfiles/
-.idea/vcs.xml
+
+.idea/
