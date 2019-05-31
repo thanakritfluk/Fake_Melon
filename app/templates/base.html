@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/app/static/playlist.css">
     <link rel="stylesheet" href="/app/static/regist.css">
     <link rel="stylesheet" href="/app/static/login.css">
+    <link rel="stylesheet" href="/app/static/display.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -66,7 +67,7 @@
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchingbox">
                 <div id="btn-wrapper">
-                    <button class="btn btn-outline-success my-2 my-sm-0" id="searchingbutton" type="submit">Search</button>
+                    <button onclick="location.href='{{ url_for('search') }}'" class="btn btn-outline-success my-2 my-sm-0" id="searchingbutton" type="submit">Search</button>
                 </div>
             </form>
         </div>

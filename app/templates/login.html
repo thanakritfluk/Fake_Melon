@@ -3,46 +3,46 @@
 {% block content %}
 <title>Sign in</title>
 <!-- <body class="login-page"> -->
+
 <body class="login-page">
     <div class="login-page-content">
-      <div class="container login-content">
-        <h1 id="login-main-header">Login</h1>
-        <br>
-        <a style="    font-size: 1.8rem;
+        <div class="container login-content">
+            <h1 id="login-main-header">Login</h1>
+            <br>
+            <a style="    font-size: 1.8rem;
         color: #fff3f0;
         opacity: 0.8;">Please login before rating!</a>
-        <div id="login-box">
-            <form action="" method="POST" name="form">
-                {{ form.hidden_tag() }}
+            <div id="login-box">
+                <form action="" method="POST" name="form">
+                    {{ form.hidden_tag() }}
 
-                <div class="form-group">
-                    <label for="username" class="login-header">Username</label>
-                    <input type="text" class="form-control login-blanket" placeholder="username" name="username"
-                        id="username">
-                </div>
+                    <div class="form-group">
+                        <label for="username" class="login-header">Username</label>
+                        <input type="text" class="form-control login-blanket" placeholder="username" name="username"
+                            id="username">
+                    </div>
 
-                <div class="form-group">
-                    <label for="password" class="login-header">Password</label>
-                    <input type="password" class="form-control login-blanket" placeholder="password" name="password"
-                        id="password">
-                </div>
+                    <div class="form-group">
+                        <label for="password" class="login-header">Password</label>
+                        <input type="password" class="form-control login-blanket" placeholder="password" name="password"
+                            id="password">
+                    </div>
 
 
-                <div class="form-group login-button-group">
-                    <button type="submit" class="btn btn-outline-dark login-page-button" id="signin-btn">
-                        Sign in
-                    </button>
-                    <button onclick="location.href='{{ url_for('registration') }}'" type="button"
-                        class="btn btn-outline-dark login-page-button" id="signup-btn" data-placement="top"
-                        title="Regist a new account">Sign up
-                    </button>
-                </div>
-            </form>
->>>>>>> 1a048786b6696800fd79dc120ce9c88afeda2ad6
+                    <div class="form-group login-button-group">
+                        <button type="submit" class="btn btn-outline-dark login-page-button" id="signin-btn">
+                            Sign in
+                        </button>
+                        <button onclick="location.href='{{ url_for('registration') }}'" type="button"
+                            class="btn btn-outline-dark login-page-button" id="signup-btn" data-placement="top"
+                            title="Regist a new account">Sign up
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>  
     </div>
-    
+
 
 
     <!-- Optional JavaScript -->

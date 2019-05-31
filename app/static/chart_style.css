@@ -7,6 +7,8 @@
     background-color: #454b51;
     font-family: 'Josefin Sans', sans-serif;
     margin: auto;
+    overflow-x: hidden;
+    
 }
 
 .page-content {
