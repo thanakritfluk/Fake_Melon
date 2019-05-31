@@ -110,11 +110,6 @@ def registration():
             return render_template('login.html', message="Sign up successful", form=form)
     return render_template('regist.html')
 
-
-@fake_melon.route('/search')
-def search():
-    return render_template('display.html')
-
 @fake_melon.route('/search')
 def search():
     return render_template('display.html')
