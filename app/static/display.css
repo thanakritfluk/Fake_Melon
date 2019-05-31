@@ -1,0 +1,106 @@
+#display-content {
+    margin: auto;
+    padding-top: 10rem;
+
+}
+
+#result-header {
+    color: white;
+    font-size: 3.5rem;
+    margin-left: 1rem;
+}
+
+.result-table-header {
+    color: white;
+    font-size: 2.5rem;
+    opacity: 0.7;
+    margin-left: 0rem;
+    display: flex;
+}
+.result-list {
+    padding-left: 0rem;
+}
+
+.result-item {
+    display: inline-table;
+}
+
+.result-image {
+    width: 10rem;
+    height: 10rem;
+}
+
+.fav-icon {
+    color: #ffffff;
+    font-size: 3.5rem;
+    /* margin: auto; */
+    text-align: center;
+    display: inherit;
+    margin-top: 0.6rem;
+}
+
+.result-album-header {
+    padding-left: 0.5rem;
+}
+
+.result-play-header {
+text-align: center;
+
+}
+
+.result-title-header {
+    padding-left: 0rem;
+}
+
+.result-artist-header {
+    padding-left: 6rem;
+}
+
+.result-like-header {
+    text-align: center;
+    padding-left: 0rem;
+
+}
+
+.result-play {
+    margin-left: 6rem;
+    margin-right: 0.5rem;
+}
+
+.result-artist {
+    font-size: 2rem;
+    color: white;
+    align-self: center;
+}
+
+.add-icon {
+    text-align: center;
+    padding-left: 5rem;
+}
+
+.fav-icon {
+    align-self: center;
+    padding-bottom: 2rem;
+}
+
+#searched-words {
+    font-style: italic;
+    display: initial;
+    font-weight: 100;
+    font-size: 3rem;
+    /* text-decoration: underline; */
+    text-decoration-line: underline;
+    text-decoration-style: inherit;
+}
+
+.no-result {
+    position: fixed;
+    font-size: 3rem;
+    color: white;
+    visibility:hidden;
+    width: 100%;
+    max-width: 100rem;
+    text-align: center;
+    margin-top: 6rem;
+    opacity: 0.6;
+}

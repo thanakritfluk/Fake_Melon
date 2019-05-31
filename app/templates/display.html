@@ -1,8 +1,65 @@
 {% extends 'base.html' %}
 <!DOCTYPE html>
 {% block content %}
-<title>Search result</title>
-<body>
-    
-</body>
+    <title>Search results</title>
+
+    <body>
+
+    <div class="container" id="display-content">
+        {% if searching %}
+            <h1 id="result-header">
+                Results:
+                <div id="searched-words">
+                    {{ searching }}
+                </div>
+            </h1>
+        {% endif %}
+
+        <hr class="line">
+        {% if data %}
+            <div>
+
+                <div class="row result-table-header">
+                    <div class="col-1 result-album-header ">Albums</div>
+                    <div class="col-2 result-play-header">Play music</div>
+                    <div class="col-2 result-title-header">
+                        Title
+                    </div>
+                    <div class="col-3 result-artist-header">Artist</div>
+                    <div class="col-2 result-fav-header">Favourite</div>
+                    <div class="col-2 result-like-header">Likes
+                    </div>
+                </div>
+                <br>
+
+                {% for i in data %}
+                    <ul class="result-list">
+                        <li class="result-item">
+                        <li class="row playlist-item">
+                            <div class="col-1">
+                                <img src="{{ i['url_img'] }}" class="result-image" alt="">
+                            </div>
+                            <div class="col-1 chart-playicon result-play"><i class="fas fa-play play-icon2"></i></div>
+                            <div class="col-2 chart-namesong">
+                                <form action="{{ url_for('song_detail') }}" method="POST">
+                                    <input type="hidden" name="name" value="{{ i['track_name'] }}"></input>
+                                    <input class="chart-namesong" type="submit" value="{{ i['track_name'] }}"></input>
+                                </form>
+                            </div>
+                            <div class="col-2 result-artist">{{ i['artist_name'] }}</div>
+                            <div class="col-2 addicon add-icon"><i class="fas fa-plus"></i></div>
+                            <div class="col-2 fav-icon chart-favicon">
+                                <i class="far fa-heart heart-fav"></i>
+                                <div class="num-likes"> {{ i['num_favourite'] }}</div>
+                            </div>
+                        </li>
+                        <hr class="line">
+                    </ul>
+                {% endfor %}
+
+            </div>
+        {% endif %}
+
+    </div>
+    </body>
 {% endblock %}

@@ -1,3 +1,4 @@
+import pymongo
 from app import fake_melon, lm, mongo
 from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required
@@ -11,6 +12,14 @@ Customers = mongo.db.Customers
 Play_list = mongo.db.Play_list
 Transactions = mongo.db.Transactions
 Users = mongo.db.users
+
+
+def find_rank(track_name):
+    count = 0
+    for i in Track.find().sort('num_favourite', pymongo.DESCENDING):
+        count += 1
+        if i['track_name'] == track_name:
+            return count
 
 
 @fake_melon.route('/')
@@ -75,10 +84,9 @@ def login():
             user_obj = User(user['username'])
             login_user(user_obj)
             flash("Logged in successfully!", category='success')
-            print(user_obj.username)
             return redirect(request.args.get("next") or url_for("home"))
-        flash("Wrong username or password!", category='error')
-    return render_template('login.html', title='login', form=form)
+        flash("Wrong username or password!", category='error Cup')
+    return render_template('login.html', title='login', form=form, error="Error Nama")
 
 @fake_melon.route('/logout')
 def logout():
@@ -88,7 +96,7 @@ def logout():
 @fake_melon.route('/song_detail', methods=['POST'])
 def song_detail():
     name = request.form['name']
-    rank = request.form['rank']
+    rank = find_rank(str(name))
     artist = 'not found'
     genre = 'not found'
     albums = 'not found'
@@ -215,13 +223,22 @@ def registration():
             insert_id = _id.inserted_id
             Play_list.insert_one({
                 "_id": insert_id,
-                "list": {}
+                "playlist": {},
+                "likes": {}
             })
             return render_template('login.html', message="Sign up successful", form=form)
     return render_template('regist.html')
 
-@fake_melon.route('/search')
+
+@fake_melon.route('/search', methods=['POST', 'GET'])
 def search():
+    if request.method == "POST":
+        searching = request.form['search']
+        if searching == "":
+            return redirect(url_for('home'))
+        else:
+            data = Track.find({"track_name": {'$regex': str(searching), '$options': 'i'}})
+            return render_template('display.html', searching=searching, data=data)
     return render_template('display.html')
 
 
@@ -231,4 +248,3 @@ def load_user(username):
     if not u:
         return None
     return User(u['username'])
-
