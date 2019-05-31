@@ -1,5 +1,4 @@
 import pymongo
-
 from app import fake_melon, lm, mongo
 from flask import request, redirect, render_template, url_for, flash
 from flask_login import login_user, logout_user, login_required

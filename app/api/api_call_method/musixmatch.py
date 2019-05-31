@@ -2,6 +2,7 @@ import requests
 from app.views import Track
 from app.api.api_call_method.coverpy_url import get_cover_img_url
 from app.api.musix_api.lyrics_api import api_methods, base_url, format_url, api_key
+from app.api.api_call_method.youtube_link import url_music
 
 track_collection = Track
 
@@ -34,13 +35,15 @@ def is_unique(track_name):
 def insert_100_data():
     data = fetch_data()
     for track in data:
-        # print(track)
         track = track['track']
         album_name = track['album_name']
         artist_name = track['artist_name']
         num_fav = track['num_favourite']
         track_name = track['track_name']
-        url_img = get_cover_img_url(track_name)
+        try:
+            url_img = get_cover_img_url(track_name)
+        except:
+            url_img = "NONE"
         genres_size = len(track['primary_genres']['music_genre_list'])
         if genres_size > 0:
             genres = track['primary_genres']['music_genre_list'][0]['music_genre']['music_genre_name']
@@ -52,7 +55,8 @@ def insert_100_data():
             "albums_name": album_name,
             "genre": genres,
             "num_favourite": num_fav,
-            "url_img": url_img
+            "url_img": url_img,
+            "music_url": url_music(track_name)
         }
         if is_unique(str(track_name)):
             track_collection.insert_one(insert_track)
