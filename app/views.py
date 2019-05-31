@@ -41,15 +41,10 @@ def home():
                             fav_user = val
                         if 'likes' in key:
                             like_user = val
-
         for key, val in fav_user.items():
             fav_list.append(val)
         for key, val in like_user.items():
             like_list.append(val)
-
-    print(fav_list)
-    print(like_list)
-    print("Perfect" in fav_list)
     return render_template('chart.html', data=track_list, fav=fav_list, like=like_list)
 
 
@@ -122,7 +117,7 @@ def playlist():
         for i in Track.find().sort('num_favourite', pymongo.DESCENDING):
             if i['track_name'] in fav_list:
                 t_list.append(i)
-                
+
     return render_template('playlist.html', track = t_list)
 
 
@@ -231,7 +226,7 @@ def registration():
                 "playlist": {},
                 "likes": {}
             })
-            return render_template('login.html', message="Sign up successful", form=form)
+            return redirect(url_for('login'))
     return render_template('regist.html')
 
 
