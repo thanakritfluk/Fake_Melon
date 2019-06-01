@@ -39,7 +39,8 @@
                             <div class="col-1">
                                 <img src="{{ i['url_img'] }}" class="result-image" alt="">
                             </div>
-                            <div class="col-1 chart-playicon result-play"><i class="fas fa-play play-icon2"></i></div>
+                            <div class="col-1 chart-playicon result-play"><a href="{{i['music_url']}}" target="_blank"><i
+                                    class="fas fa-play play-icon2"></i></a></div>
                             <div class="col-2 chart-namesong">
                                 <form action="{{ url_for('song_detail') }}" method="POST">
                                     <input type="hidden" name="name" value="{{ i['track_name'] }}"></input>
