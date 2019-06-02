@@ -29,7 +29,6 @@
                             <div class="col-4 chart-namesong">
                                 <form action="{{ url_for('song_detail')}}" method="POST">
                                     <input type="hidden" name="name" value="{{i['track_name']}}"></input>
-                                    <input type="hidden" name="rank" value="1"></input>
                                     <input class="chart-namesong namesong-submit submit" type="submit" value="{{i['track_name']}}"></input>
                                 </form>
                                 {{ i['artist_name']}}
@@ -40,6 +39,7 @@
                                 <div class="col-2 addicon">
                                     <form action="{{ url_for('fav')}}"  method="POST">
                                         <input type="hidden" name="name" value="{{i['track_name']}}">
+                                        <input type="hidden" name="search" value=".">
                                         <button type="submit"  class="fas fa-plus submit"></button>
                                     </form>
                                 </div>
@@ -54,6 +54,7 @@
                                 <div class="col-2 chart-favicon">
                                     <form action="{{ url_for('like')}}"  method="POST">
                                         <input type="hidden" name="name" value="{{i['track_name']}}">
+                                        <input type="hidden" name="search" value=".">
                                         <button type="submit" class="far fa-heart submit"><a style="font-size: 20px;"> {{i['num_favourite']}}</a></button>
                                     </form>
                                 </div>

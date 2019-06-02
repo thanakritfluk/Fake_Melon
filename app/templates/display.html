@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-3 result-artist-header">Artist</div>
                     <div class="col-2 result-fav-header">Favourite</div>
-                    <div class="col-2 result-like-header">Likes
+                    <div class="col-1 result-like-header">Likes
                     </div>
                 </div>
                 <br>
@@ -47,13 +47,14 @@
                                     <input class="chart-namesong submit namesong-submit" type="submit" value="{{ i['track_name'] }}"></input>
                                 </form>
                             </div>
-                            <div class="col-2 result-artist">{{ i['artist_name'] }}</div>
+                            <div class="col-3 result-artist">{{ i['artist_name'] }}</div>
                             {% if i['track_name'] in fav %}
-                                <div class="col-2 checkicon"><i class="fas fa-check"></i></div>
+                                <div class="col-1 checkicon"><i class="fas fa-check"></i></div>
                             {% else %}
-                                <div class="col-2 addicon">
+                                <div class="col-1 addicon">
                                     <form action="{{ url_for('fav')}}"  method="POST">
                                         <input type="hidden" name="name" value="{{i['track_name']}}">
+                                        <input type="hidden" name="search" value="{{searching}}">
                                         <button type="submit"  class="fas fa-plus submit"></button>
                                     </form>
                                 </div>
@@ -68,6 +69,7 @@
                                 <div class="col-2 chart-favicon">
                                     <form action="{{ url_for('like')}}"  method="POST">
                                         <input type="hidden" name="name" value="{{i['track_name']}}">
+                                        <input type="hidden" name="search" value="{{searching}}">
                                         <button type="submit" class="far fa-heart submit"><a style="font-size: 20px;"> {{i['num_favourite']}}</a></button>
                                     </form>
                                 </div>
