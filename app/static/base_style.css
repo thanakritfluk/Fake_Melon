@@ -1,0 +1,62 @@
+#base_body {
+    max-width: 1920px;
+    min-width: 1000px;
+    width: auto;
+    max-height: 120px;
+    font-family: 'Barlow', sans-serif;
+
+
+}
+#banner{
+    max-width: 1920px;
+    width: auto;
+    height: 120px;
+    align-content: start;
+    background: url(image/ataulfomangoes.jpg) ;
+    background-size: cover;
+    opacity: 0.9;
+
+}
+
+#mango-logo{
+    height: 50px;
+    width: auto;
+    margin-top: 15px;
+    margin-left: 100px;
+    margin-right: 300px;
+}
+
+#search{
+    margin-top: 30px;
+}
+
+
+#inbanner{
+    align-self: center;
+}
+#searchingbox{
+    width: 550px;
+    height: 40px;
+    margin-top: 30px;
+}
+
+#searchingbutton{
+    height: 40px;
+    margin-top: 30px;
+}
+
+#user-icon {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-name{
+    font-size: 30px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#user-icon:hover {
+    opacity: 0.7;
+}
