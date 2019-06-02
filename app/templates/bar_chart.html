@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ title }}</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+
+<body>
+<center>
+    <h1>{{ title }}</h1>
+</center>
+<center>
+    <canvas id="genre_chart" width="600" height="400"></canvas>
+    <br>
+    <canvas id="artist_chart" width="1000" height="600"></canvas>
+    <script>
+        // bar chart data
+        var genrebarData = {
+            labels: [
+                {% for item in genre_labels %}
+                    "{{ item }}",
+                {% endfor %}
+            ],
+
+            datasets: [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data: [
+                    {% for item in genre_values %}
+                        "{{ item }}",
+                    {% endfor %}
+                ]
+            }
+            ]
+        };
+
+        // get bar chart canvas
+        var genrechart = document.getElementById("genre_chart").getContext("2d");
+
+        steps = 10;
+        max = {{genre_max}}
+
+            // draw bar chart
+            new Chart(genrechart).Bar(genrebarData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines: true,
+                    barShowStroke: true,
+                    scaleShowLabels: true
+                }
+            );
+
+        var artistbarData = {
+            labels: [
+                {% for item in artist_labels %}
+                    "{{ item }}",
+                {% endfor %}
+            ],
+
+            datasets: [{
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                data: [
+                    {% for item in artist_values %}
+                        "{{ item }}",
+                    {% endfor %}
+                ]
+            }
+            ]
+        };
+
+        // get bar chart canvas
+        var artistchart = document.getElementById("artist_chart").getContext("2d");
+
+        steps = 10;
+        max = {{artist_max}}
+
+            // draw bar chart
+            new Chart(artistchart).Bar(artistbarData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines: true,
+                    barShowStroke: true,
+                    scaleShowLabels: true
+                }
+            );
+
+    </script>
+</center>
+</body>
+</html>

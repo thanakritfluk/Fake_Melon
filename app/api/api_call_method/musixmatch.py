@@ -1,10 +1,10 @@
 import requests
-from app.views import Track
+from app import mongo
 from app.api.api_call_method.coverpy_url import get_cover_img_url
 from app.api.musix_api.lyrics_api import api_methods, base_url, format_url, api_key
 from app.api.api_call_method.youtube_link import url_music
 
-track_collection = Track
+track_collection = mongo.db.Tracks
 
 
 def get_chart_data(page_num, page_size, country, has_lyric):
@@ -27,6 +27,9 @@ def fetch_data():
     return data
 
 
+# print(fetch_data())
+
+
 def is_unique(track_name):
     number_of_track = track_collection.count_documents({"track_name": track_name})
     return number_of_track == 0
@@ -40,6 +43,7 @@ def insert_100_data():
         artist_name = track['artist_name']
         num_fav = track['num_favourite']
         track_name = track['track_name']
+        date = track['updated_time']
         try:
             url_img = get_cover_img_url(track_name)
         except:
@@ -56,7 +60,30 @@ def insert_100_data():
             "genre": genres,
             "num_favourite": num_fav,
             "url_img": url_img,
-            "music_url": url_music(track_name)
+            "music_url": url_music(track_name),
+            "date": date
         }
         if is_unique(str(track_name)):
             track_collection.insert_one(insert_track)
+
+
+def get_fav_with_month(month, field):
+    mongo = track_collection.find({"date": {'$regex': "-" + str(month) + "-"}})
+    list = {}
+    for i in mongo:
+        if i[str(field)] not in list:
+            list[i[str(field)]] = 1
+        else:
+            list[i[str(field)]] += 1
+    return list
+
+
+def get_fav_all_year(year, field):
+    mongo = track_collection.find({"date": {'$regex': str(year) + "-"}})
+    list = {}
+    for i in mongo:
+        if i[str(field)] not in list:
+            list[i[str(field)]] = 1
+        else:
+            list[i[str(field)]] += 1
+    return list

@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pymongo
 from app import fake_melon, lm, mongo
 from flask import request, redirect, render_template, url_for, flash
@@ -5,8 +7,13 @@ from flask_login import login_user, logout_user, login_required
 from .forms import LoginForm
 from .user import User
 import flask_login
-import bson
+from app.api.api_call_method.musixmatch import get_fav_all_year
 
+name_of_month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+                 "November", "December"]
+month = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+currentMonth = datetime.now().month
+currentYear = datetime.now().year
 Track = mongo.db.Tracks
 Customers = mongo.db.Customers
 Play_list = mongo.db.Play_list
@@ -98,7 +105,6 @@ def song_detail():
 @fake_melon.route('/playlist')
 @login_required
 def playlist():
-    
     track_list = Track.find().sort([("num_favourite", pymongo.DESCENDING)])
     fav_user = None
     fav_list = []
@@ -118,7 +124,7 @@ def playlist():
             if i['track_name'] in fav_list:
                 t_list.append(i)
 
-    return render_template('playlist.html', track = t_list)
+    return render_template('playlist.html', track=t_list)
 
 
 @fake_melon.route('/fav', methods=['POST'])
@@ -141,7 +147,7 @@ def fav():
             for key, val in tmp1.items():
                 if int(key) > maximum:
                     maximum = int(key)
-            size = maximum+1
+            size = maximum + 1
             st = "playlist.{size}".format(size=size)
             Play_list.update_one({'_id': id}, {"$set": {st: s_name}})
         else:
@@ -179,7 +185,7 @@ def like():
             for key, val in tmp1.items():
                 if int(key) > maximum:
                     maximum = int(key)
-            size = maximum+1
+            size = maximum + 1
             st = "likes.{size}".format(size=size)
             Play_list.update_one({'_id': id}, {"$set": {st: s_name}})
         else:
@@ -201,7 +207,7 @@ def like():
             like = int(val)
     like += 1
     Track.update_one({"track_name": s_name}, {
-                     "$set": {"num_favourite": int(like)}})
+        "$set": {"num_favourite": int(like)}})
     return redirect(url_for('home'))
 
 
@@ -229,6 +235,7 @@ def registration():
             return redirect(url_for('login'))
     return render_template('regist.html')
 
+
 @fake_melon.route('/remove', methods=['POST'])
 @login_required
 def remove():
@@ -245,14 +252,14 @@ def remove():
                         if 'playlist' in key:
                             fav_user = val
         s = 0
-        print(fav_user)
         for key, val in fav_user.items():
             if s_name in val:
                 s = key
         st = "playlist.{size}".format(size=s)
-        
+
         Play_list.update_one({'_id': id}, {"$unset": {st: s_name}})
     return redirect(url_for('playlist'))
+
 
 @fake_melon.route('/search', methods=['POST', 'GET'])
 def search():
@@ -283,6 +290,29 @@ def search():
             data = Track.find({"track_name": {'$regex': str(searching), '$options': 'i'}})
             return render_template('display.html', searching=searching, data=data, like=like_list, fav=fav_list)
     return render_template('display.html')
+
+
+def chart_data(field):
+    bar_labels = []
+    bar_values = []
+    for key, value in get_fav_all_year(currentYear, field).items():
+        if key == "NONE":
+            key = "Other"
+        bar_labels.append(key)
+        bar_values.append(value)
+    return bar_labels, bar_values
+
+
+@fake_melon.route("/chart")
+def chart():
+    genre_labels, genre_values = chart_data("genre")
+    genre_max = max(genre_values)
+    artist_labels, artist_values = chart_data("artist_name")
+    artist_max = max(artist_values)
+    return render_template('bar_chart.html', title='Genre and Artist popular of ' + str(currentYear),
+                           genre_max=genre_max + 2, genre_labels=genre_labels,
+                           genre_values=genre_values, artist_max=artist_max + 2, artist_labels=artist_labels,
+                           artist_values=artist_values)
 
 
 @lm.user_loader

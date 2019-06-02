@@ -3,9 +3,9 @@
 
 <head>
     {% if title %}
-    <title>{{ title }}</title>
+        <title>{{ title }}</title>
     {% else %}
-    <title>Mango</title>
+        <title>Mango</title>
     {% endif %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/app/static/chart_style3.css">
     <link rel="stylesheet" href="/app/static/songdetail_style.css">
@@ -28,56 +28,59 @@
     <link rel="stylesheet" href="/app/static/login.css">
     <link rel="stylesheet" href="/app/static/display.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     {% block head %}{% endblock %}
 </head>
 
 <body class="chart-body">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="banner">
-        <a href="{{ url_for('home') }}" id="mango-logo">
-            Mango
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="banner">
+    <a href="{{ url_for('home') }}" id="mango-logo">
+        Mango
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                    <a class="nav-link" id="playlist-link" href="{{ url_for('playlist') }}"> Playlist<span#}
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" >
-                    {% if current_user.is_authenticated() %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" id="playlist-link" href="{{ url_for('playlist') }}"> Playlist<span#}
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" id="playlist-link" href="{{ url_for('chart') }}"> PopularChart<span#}
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                {% if current_user.is_authenticated() %}
                     <a class="nav-link" href="{{ url_for('logout') }}">
                         <div class="log-text" id="logout-icon">Logout</div>
                     </a>
-                    {% else %}
+                {% else %}
                     <a class="nav-link" href="{{ url_for('login') }}">
                         <div class="log-text" id="login-icon">Login</div>
                     </a>
-                    {% endif %} 
-                </li>
-            </ul>
+                {% endif %}
+            </li>
+        </ul>
 
-           <a class="nav-item" id="user-name">{{current_user.username}}</a>
-            <form class="form-inline my-2 my-lg-0" method="POST" action=" {{ url_for('search') }}">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchingbox" name="search">
-                <div id="btn-wrapper">
-                    <button onclick="location.href='{{ url_for('search') }}'" class="btn btn-outline-success my-2 my-sm-0" id="searchingbutton" type="submit">Search</button>
-                </div>
-            </form>
-        </div>
-    </nav>
-    {% block content %}
-    {% endblock %}
-    {#<div class="container">#}
-    {#    {% include "flash.html" %}#}
-    {#    {% block content %}{% endblock %}#}
-    {#</div>#}
+        <a class="nav-item" id="user-name">{{ current_user.username }}</a>
+        <form class="form-inline my-2 my-lg-0" method="POST" action=" {{ url_for('search') }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchingbox"
+                   name="search">
+            <div id="btn-wrapper">
+                <button onclick="location.href='{{ url_for('search') }}'" class="btn btn-outline-success my-2 my-sm-0"
+                        id="searchingbutton" type="submit">Search
+                </button>
+            </div>
+        </form>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
 
 </body>
 
