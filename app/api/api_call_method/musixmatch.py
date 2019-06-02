@@ -78,7 +78,7 @@ def get_fav_with_month(month, field):
     return list
 
 
-def get_fav_all_year(year, field):
+def get_fav_genre_all_year(year, field):
     mongo = track_collection.find({"date": {'$regex': str(year) + "-"}})
     list = {}
     for i in mongo:
@@ -86,4 +86,16 @@ def get_fav_all_year(year, field):
             list[i[str(field)]] = 1
         else:
             list[i[str(field)]] += 1
+    return list
+
+
+def get_fav_artist_all_year(year, field):
+    mongo = track_collection.find({"date": {'$regex': str(year) + "-"}})
+    list = {}
+    for i in mongo:
+        check = i[str(field)].split(" feat")[0]
+        if check not in list:
+            list[check] = 1
+        else:
+            list[check] += 1
     return list

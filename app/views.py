@@ -7,7 +7,7 @@ from flask_login import login_user, logout_user, login_required
 from .forms import LoginForm
 from .user import User
 import flask_login
-from app.api.api_call_method.musixmatch import get_fav_all_year
+from app.api.api_call_method.musixmatch import get_fav_genre_all_year, get_fav_artist_all_year
 
 name_of_month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
                  "November", "December"]
@@ -105,7 +105,6 @@ def song_detail():
 @fake_melon.route('/playlist')
 @login_required
 def playlist():
-
     track_list = Track.find().sort([("num_favourite", pymongo.DESCENDING)])
     fav_user = None
     fav_list = []
@@ -262,7 +261,7 @@ def like():
             like = int(val)
     like += 1
     Track.update_one({"track_name": s_name}, {
-                     "$set": {"num_favourite": int(like)}})
+        "$set": {"num_favourite": int(like)}})
     if search == '.':
         return redirect(url_for('home'))
     elif search == ',':
@@ -315,7 +314,6 @@ def like():
             data = Track.find(
                 {"track_name": {'$regex': str(search), '$options': 'i'}})
             return render_template('display.html', searching=search, data=data, like=like_list, fav=fav_list)
-        return render_template('display.html')
 
 
 @fake_melon.route('/registration', methods=['POST', 'GET'])
@@ -401,10 +399,21 @@ def search():
     return render_template('display.html')
 
 
-def chart_data(field):
+def chart_genre(field):
     bar_labels = []
     bar_values = []
-    for key, value in get_fav_all_year(currentYear, field).items():
+    for key, value in get_fav_genre_all_year(currentYear, field).items():
+        if key == "NONE":
+            key = "Other"
+        bar_labels.append(key)
+        bar_values.append(value)
+    return bar_labels, bar_values
+
+
+def chart_artist():
+    bar_labels = []
+    bar_values = []
+    for key, value in get_fav_artist_all_year(currentYear, str("artist_name")).items():
         if key == "NONE":
             key = "Other"
         bar_labels.append(key)
@@ -414,13 +423,13 @@ def chart_data(field):
 
 @fake_melon.route("/chart")
 def chart():
-    genre_labels, genre_values = chart_data("genre")
+    genre_labels, genre_values = chart_genre("genre")
     genre_max = max(genre_values)
-    artist_labels, artist_values = chart_data("artist_name")
+    artist_labels, artist_values = chart_artist()
     artist_max = max(artist_values)
     return render_template('bar_chart.html', title='Genre and Artist popular of ' + str(currentYear),
                            genre_max=genre_max + 2, genre_labels=genre_labels,
-                           genre_values=genre_values, artist_max=artist_max + 2, artist_labels=artist_labels,
+                           genre_values=genre_values, artist_max=artist_max + 1, artist_labels=artist_labels,
                            artist_values=artist_values)
 
 
