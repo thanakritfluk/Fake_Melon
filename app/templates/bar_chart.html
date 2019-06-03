@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 {% block content %}
 
-<title>{{ title }}</title>
+    <title>{{ title }}</title>
 
-<body style="background-color:whitesmoke">
+    <body style="background-color:#bfc4c6">
     <div>.</div>
     <div align="center" style="margin-top: 10%;">
         <h1>
@@ -22,56 +22,56 @@
         var genrebarData = {
             labels: [
                 {% for item in genre_labels %}
-                "{{ item }}",
+                    "{{ item }}",
                 {% endfor %}
             ],
             datasets: [{
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
+                fillColor: "darkorange",
+                strokeColor: "darkorange",
+                pointColor: "darkorange",
                 data: [
                     {% for item in genre_values %}
                         "{{ item }}",
                     {% endfor %}
                 ],
             }]
-            
+
         };
         // get bar chart canvas
         var genrechart = document.getElementById("genre_chart").getContext("2d");
-
         steps = 10;
         max = {{ genre_max }}
+            // draw bar chart
+            new Chart(genrechart).Bar(genrebarData, {
+                    scaleOverride: true,
+                    scaleSteps: steps,
+                    scaleStepWidth: Math.ceil(max / steps),
+                    scaleStartValue: 0,
+                    scaleShowVerticalLines: true,
+                    scaleShowGridLines: true,
+                    barShowStroke: true,
+                    scaleShowLabels: true,
 
-        // draw bar chart
-        new Chart(genrechart).Bar(genrebarData, {
-            scaleOverride: true,
-            scaleSteps: steps,
-            scaleStepWidth: Math.ceil(max / steps),
-            scaleStartValue: 0,
-            scaleShowVerticalLines: true,
-            scaleShowGridLines: true,
-            barShowStroke: true,
-            scaleShowLabels: true,
-        }
-        );
+                }
+            );
+
 
         var artistbarData = {
             labels: [
                 {% for item in artist_labels %}
-        "{{ item }}",
-            {% endfor %}
+                    "{{ item }}",
+                {% endfor %}
             ],
 
-        datasets: [{
-            fillColor: "rgba(151,187,205,0.2)",
-            strokeColor: "rgba(151,187,205,1)",
-            pointColor: "rgba(151,187,205,1)",
-            data: [
-                {% for item in artist_values %}
+            datasets: [{
+                fillColor: "darkorange",
+                strokeColor: "darkorange",
+                pointColor: "darkorange",
+                data: [
+                    {% for item in artist_values %}
                         "{{ item }}",
-        {% endfor %}
-        ]
+                    {% endfor %}
+                ]
             }
             ]
         };
@@ -82,18 +82,18 @@
         steps = 10;
         max = {{ artist_max }}
 
-        // draw bar chart
-        new Chart(artistchart).Bar(artistbarData, {
-            scaleOverride: true,
-            scaleSteps: steps,
-            scaleStepWidth: Math.ceil(max / steps),
-            scaleStartValue: 0,
-            scaleShowVerticalLines: true,
-            scaleShowGridLines: true,
-            barShowStroke: true,
-            scaleShowLabels: true,
-        });
+            // draw bar chart
+            new Chart(artistchart).Bar(artistbarData, {
+                scaleOverride: true,
+                scaleSteps: steps,
+                scaleStepWidth: Math.ceil(max / steps),
+                scaleStartValue: 0,
+                scaleShowVerticalLines: true,
+                scaleShowGridLines: true,
+                barShowStroke: true,
+                scaleShowLabels: true,
+            });
 
     </script>
-</body>
+    </body>
 {% endblock %}
