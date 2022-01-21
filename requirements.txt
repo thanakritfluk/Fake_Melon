@@ -12,5 +12,5 @@ MarkupSafe==1.1.1
 pymongo==3.8.0
 Werkzeug==0.15.4
 WTForms==2.0.2
-ipython==3.0.0
+ipython==7.16.3
 beautifulsoup4==4.7.1
